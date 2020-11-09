@@ -9,7 +9,7 @@ span, p{
 div#bannerDiv{
     background-color: aqua;
     width: 100%;
-    height: 175px;
+    height: 150px;
 }
 
 div#logoDiv{
@@ -31,7 +31,7 @@ div#userDiv {
 }
 
 img#logo{
-    width: 150px;
+    width: 100px;
     line-height: 1.5;
     display: inline-block;
     vertical-align: middle;
