@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="StyleSheet.css">
     <script src="JavaScript/jquery-3.5.1.js"></script>
     <script src="JavaScript/menuTrigger.js"></script>
+    <script src="JavaScript/onFormActionTest.js"></script>
 </head>
 <body style="background-color: steelblue">
 <div id="bannerDiv">
@@ -16,7 +17,23 @@
     <span>Panel użytkownika</span>
 </div>
 <div id="content">
-    <span>Content</span>
+
+    <form id="rejestracja" action="#" onsubmit="formAction();">
+        Dodaj account:<br>
+        <label for="login">Login:</label><br>
+        <input type="text" id="login" name="login"><br>
+        <label for="haslo">Haslo:</label><br>
+        <input type="password" id="haslo" name="haslo"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label>Czy zweryfikowany:</label><br>
+        <input type="radio" id="tak" name="weryfikacja" required>
+        <label for="tak">tak</label><br>
+        <input type="radio" id="nie" name="weryfikacja">
+        <label for="nie">nie</label><br>
+        <input type="submit" value="Submit">
+    </form>
+
 </div>
 <div id="accountMenu">
     <p class="menuElement">Zaloguj się</p>
