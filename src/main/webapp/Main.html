@@ -17,8 +17,8 @@
     <span>Panel użytkownika</span>
 </div>
 <div id="content">
-
-    <form id="rejestracja" action="#" onsubmit="formAction();">
+    <!-- robiąc  action=./InsertData powodujemy, że jak sie wcisnie przycisk to automatycznie sie zalaczy servlet InsertData -->
+    <form id="rejestracja" action="./InsertData" method="post">
         Dodaj account:<br>
         <label for="login">Login:</label><br>
         <input type="text" id="login" name="login"><br>
@@ -27,9 +27,9 @@
         <label for="email">Email:</label><br>
         <input type="text" id="email" name="email"><br>
         <label>Czy zweryfikowany:</label><br>
-        <input type="radio" id="tak" name="weryfikacja" required>
+        <input type="radio" id="tak" name="weryfikacja" value ="1" required>
         <label for="tak">tak</label><br>
-        <input type="radio" id="nie" name="weryfikacja">
+        <input type="radio" id="nie" name="weryfikacja" value = "0">
         <label for="nie">nie</label><br>
         <input type="submit" value="Submit">
     </form>
