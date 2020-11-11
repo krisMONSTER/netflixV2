@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Wypożyczalnia</title>
-    <link rel="stylesheet" href="StyleSheet.css">
+    <title>MovOn</title>
+    <link rel="icon" href="images/logoV2.png" type="image/icon type">
+    <link rel="stylesheet" href="CSS/StyleSheet.css">
     <script src="JavaScript/jquery-3.5.1.js"></script>
-    <script src="JavaScript/menuTrigger.js"></script>
+    <script src="JavaScript/MenuTrigger.js"></script>
+    <script src="JavaScript/MainScript.js"></script>
 </head>
 <body style="background-color: steelblue">
-<div id="bannerDiv">
-    <div id="logoDiv"><a href="Main.html"><img id="logo" src="images/logoV2.png" alt="Logo firmy"></a></div>
-    <div id="userDiv"><img id="account" src="images/user.png" alt="Konto" onclick="menuTrigger()"></div>
+<div id="banner_div">
+    <div id="logo_div"><a href="Main.html"><img id="logo_img" src="images/logoV2.png" alt="Logo firmy"></a></div>
+    <div id="user_div"><img id="account_img" src="images/user.png" alt="Konto"></div>
 </div>
 <div id="panel">
-    <span>Panel użytkownika</span>
+    <div class="wrap">
+        <div class="panel_element" onmouseover="mouseOverPanelElement(this)" onmouseout="mouseOutPanelElement(this)" id="search_div">
+            <span id="search"></span>
+        </div>
+        <div class="panel_element" onmouseover="mouseOverPanelElement(this)" onmouseout="mouseOutPanelElement(this)" id="test_div">
+            <span>Testowy formularz</span>
+        </div>
+    </div>
 </div>
-<div id="content">
-    <!-- robiąc  action=./InsertData powodujemy, że jak sie wcisnie przycisk to automatycznie sie zalaczy servlet InsertData -->
-    <form id="rejestracja" action="./InsertData" method="post">
+<div id="content_div">
+    <!-- robiąc  action=./InsertData powodujemy, że jak sie wcisnie przycisk to automatycznie sie zalaczy servlet InsertData
+    <form id="rejestracja" method="post" action="./InsertData">
         Dodaj account:<br>
         <label for="login">Login:</label><br>
         <input type="text" id="login" name="login"><br>
@@ -26,18 +35,19 @@
         <label for="email">Email:</label><br>
         <input type="text" id="email" name="email"><br>
         <label>Czy zweryfikowany:</label><br>
-        <input type="radio" id="tak" name="weryfikacja" value ="1" required>
+        <input type="radio" id="tak" name="weryfikacja" value = "1" required>
         <label for="tak">tak</label><br>
         <input type="radio" id="nie" name="weryfikacja" value = "0">
         <label for="nie">nie</label><br>
         <input type="submit" value="Submit">
     </form>
-
+    -->
 </div>
-<div id="accountMenu">
-    <p class="menuElement">Zaloguj się</p>
-    <hr class="menuElement">
-    <p class="menuElement">Utwórz konto</p>
+<div id="menu_div">
+    <p class="menu_element" id="log_in"></p>
+    <hr class="menu_element">
+    <p class="menu_element" id="register"></p>
 </div>
 </body>
+<script src="JavaScript/MainLanguage.js"></script>
 </html>
