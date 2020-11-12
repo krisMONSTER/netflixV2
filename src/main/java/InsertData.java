@@ -21,7 +21,7 @@ public class InsertData extends HttpServlet {
          st.setString(2,request.getParameter("haslo"));
          st.setString(3,request.getParameter("email"));
          st.setInt(4,Integer.parseInt(request.getParameter("weryfikacja")));
-
+         //DUPA
          st.executeUpdate();
          st.close();
          baza.close();
