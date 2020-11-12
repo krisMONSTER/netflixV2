@@ -7,7 +7,7 @@ public class DatabaseConnection {
     protected static Connection initializeDatabase() throws SQLException,ClassNotFoundException{
         String dbDriver= "com.mysql.jdbc.Driver";
         String dbURL="jdbc:mysql://localhost:3306/";
-
+//
         String dbName="db_test";
         String dbUser="root";
         String dbPassword="";
