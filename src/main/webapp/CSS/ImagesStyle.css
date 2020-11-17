@@ -1,0 +1,7 @@
+img#logo_img{
+    width: 100px;
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 30px;
+}

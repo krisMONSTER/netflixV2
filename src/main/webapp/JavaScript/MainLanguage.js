@@ -1,4 +1,4 @@
-let language = "english";
+let language = "polish";
 if (language === "polish"){
     get("log_in").innerHTML = "Zaloguj się";
     get("register").innerHTML = "Zarejestruj się";

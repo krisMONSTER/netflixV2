@@ -1,0 +1,13 @@
+body{
+    margin: 0;
+}
+#banner{
+    background-color: darkgray;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+div#form{
+    text-align: center;
+    background-color: burlywood;
+}
