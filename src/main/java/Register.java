@@ -10,14 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet("/InsertData")
-public class InsertData extends HttpServlet {
+@WebServlet("/Register")
+public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      try{
          Connection baza = DatabaseConnection.initializeDatabase();
          //id; login, pass, email,verifie,status
          PreparedStatement st = baza.prepareStatement("INSERT INTO account (login,password,email,verified)VALUES (?,?,?,?)");
          st.setString(1,request.getParameter("login"));
+         /*
+         String zaszyfrowane = request.getParameter("haslo");
+         //zaszyfrowane.szyfruj
+         st.setString(2,zaszyfrowane);
+          */
          st.setString(2,request.getParameter("haslo"));
          st.setString(3,request.getParameter("email"));
          st.setInt(4,Integer.parseInt(request.getParameter("weryfikacja")));

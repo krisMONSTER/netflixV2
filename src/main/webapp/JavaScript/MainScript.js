@@ -13,7 +13,7 @@ $(document).ready(function () {
     });
 
     $("#test_div").click(function () {
-        $("#content_div").html("<form id=\"rejestracja\" method=\"post\" action=\"./InsertData\">" +
+        $("#content_div").html("<form id=\"rejestracja\" method=\"post\" action=\"./Register\">" +
             "Dodaj account:<br>" +
             "<label for=\"login\">Login:</label><br>" +
             "<input type=\"text\" id=\"login\" name=\"login\"><br>" +
