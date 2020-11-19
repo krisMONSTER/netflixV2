@@ -31,16 +31,8 @@ div#user_div {
     text-align: right;
 }
 
-img#logo_img{
-    width: 100px;
-    line-height: 1.5;
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 30px;
-}
-
 img#account_img{
-    width: 50px;
+    width: 90px;
     line-height: 1.5;
     display: inline-block;
     vertical-align: middle;
