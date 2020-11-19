@@ -32,7 +32,7 @@ public class LogIn extends HttpServlet {
                 }
                 System.out.println(login);
                 //response.sendRedirect(request.getContextPath() + "?a=5");
-                //response.getOutputStream().println("<script type='text/javascript'>document.getElementById(\"messages\");</script>");
+                response.getOutputStream().println("<script type='text/javascript'>document.getElementById(\"messages\");</script>");
                 out.println("<html><body><b>" + login
                         + "</b></body></html>");
 

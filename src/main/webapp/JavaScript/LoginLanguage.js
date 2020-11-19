@@ -1,4 +1,4 @@
-let language = "polish";
+let language = "english";
 if (language === "polish"){
     document.form.submit.value = "Zaloguj się";
     get("login_label").innerHTML = "Login";
