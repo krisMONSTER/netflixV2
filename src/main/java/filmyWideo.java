@@ -33,7 +33,9 @@ public class filmyWideo {
         //long temp = 3897171; // 2gi dzien+1000
         //long temp=3898171; // 3ci dzien +1000
         //long temp = 3899171; //4ty dzien +1000
-        long temp = 3900171;
+        //long temp = 3901171; //5ty dzien +1000
+        //long temp = 3902171+885//6ty dzien +885;
+        long temp =2713423;
         int i=0;
         do{
             response=Unirest.get(host).queryString("i", "tt"+temp).queryString("apikey", api_key).asJson();
