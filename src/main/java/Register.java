@@ -53,12 +53,12 @@ public class Register extends HttpServlet {
                 st.setString(2,zaszyfrowane);
 
                 */
-                    String link="dupa";
+
                     st.setString(2, request.getParameter("haslo"));
                     st.setString(3, request.getParameter("email"));
 
                     SendMail.send(request.getParameter("email"));
-                    st.setInt(4, Integer.parseInt(request.getParameter("weryfikacja")));
+                    st.setInt(4, 0);
                     st.executeUpdate();
                     st.close();
                     PrintWriter out = response.getWriter();

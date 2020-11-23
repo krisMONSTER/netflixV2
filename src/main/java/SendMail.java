@@ -45,14 +45,14 @@ public class SendMail
      	      /*  Create an instance of MimeMessage,
      	          it accept MIME types and headers
      	      */
-            String link= "dupa";
+            String link= "http://localhost:8080/javaServ_war/authenticate?code="+email_to;
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email_from));
             message.addRecipient(Message.RecipientType.TO,new InternetAddress(email_to));
             message.setSubject("MoveOn Activation Link!");
             message.setText("Hello!\n You have registered on our website MoveOn and " +
-                    "before you can use our services and log in to your account, you have to confirm your registration by clicking the link below!\n"+
-                    link);
+                    "before you can use our services and log in to your account, you have to confirm your registration by clicking the link below!\n" +
+                            "<a href ='"+link+"'>"+link+"</a>","UTF-8","html");
 
             /* Transport class is used to deliver the message to the recipients */
 
