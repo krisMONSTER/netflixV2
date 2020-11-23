@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -56,26 +56,6 @@ public class Register extends HttpServlet {
                     String link="dupa";
                     st.setString(2, request.getParameter("haslo"));
                     st.setString(3, request.getParameter("email"));
-/*
-                    String email_to=request.getParameter("email");
-                    String host = "localhost";
-                    Properties properties = System.getProperties();
-                    properties.setProperty("mail.smtp.host",host);
-                    Session session = Session.getDefaultInstance(properties);
-                    try{
-                        MimeMessage message = new MimeMessage(session);
-                        message.setFrom(new InternetAddress(email_from));
-                        message.addRecipient(Message.RecipientType.TO, new InternetAddress(email_to));
-                        message.setSubject("MoveOn Activation Link!");
-                        message.setText("Hello!\n You have registered on our website MoveOn and " +
-                                "before you can use our services and log in to your account, you have to confirm your registration by clicking the link below!\n"+
-                                link);
-                        Transport.send(message);
-                        System.out.println("Sent successfully =].");
-                    }catch(MessagingException mex){
-                        mex.printStackTrace();
-                    }
-*/
 
                     SendMail.send(request.getParameter("email"));
                     st.setInt(4, Integer.parseInt(request.getParameter("weryfikacja")));

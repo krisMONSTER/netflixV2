@@ -10,7 +10,7 @@ import javax.mail.*;
 public class SendMail
 {
     final static private String email_from="uz.moveon@gmail.com";
-    final static private String pass="uzmoveon123";
+    final static private String pass="moveonuz123";
     public static void send(String email_to)
     {
         //create an instance of Properties Class
@@ -32,7 +32,7 @@ public class SendMail
            for authentication to Session instance
         */
 
-        Session session = Session.getInstance(props,new javax.mail.Authenticator()
+        Session session = Session.getInstance(props,new Authenticator()
         {
             protected PasswordAuthentication getPasswordAuthentication()
             {
