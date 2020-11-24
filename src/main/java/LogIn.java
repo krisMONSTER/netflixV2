@@ -11,6 +11,7 @@ import java.sql.*;
 @WebServlet("/LogIn")
 public class LogIn extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("KRYSIAJEKOLACJE");
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -24,9 +25,10 @@ public class LogIn extends HttpServlet {
             if(ps.execute()){
                 rs = ps.getResultSet();
                 rs.next();
-                String login = "";
+                String login;
                 try {
                     login = rs.getString("login");
+
                     response.getWriter().write("succeeded");
                 }catch (SQLException e){
                     response.getWriter().write("failed");
