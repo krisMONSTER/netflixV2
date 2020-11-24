@@ -1,4 +1,5 @@
 let opened = false;
+let isReady = true;
 
 jQuery.fn.animateAuto = function(speed, callback){
     let elem, height, width;
@@ -20,19 +21,23 @@ function setVisibilityToElements(elements, visibility){
 
 $(document).ready(function (){
     $("#account_img").click(function () {
-        const menu = $("#menu_div");
-        if(opened === true){
-            setVisibilityToElements(document.getElementsByClassName("menu_element"),"hidden");
-            menu.animate({height: '0', width: '0'},"fast",function(){
-                document.getElementById("menu_div").style.visibility = "hidden";
-            });
+        if(isReady) {
+            isReady = false;
+            const menu = $("#menu_div");
+            if (opened === true) {
+                setVisibilityToElements(document.getElementsByClassName("menu_element"), "hidden");
+                menu.animate({height: '0', width: '0'}, "fast", function () {
+                    document.getElementById("menu_div").style.visibility = "hidden";
+                    isReady = true;
+                });
+            } else {
+                document.getElementById("menu_div").style.visibility = "visible";
+                menu.animateAuto("fast", function () {
+                    setVisibilityToElements(document.getElementsByClassName("menu_element"), "visible");
+                    isReady = true;
+                });
+            }
+            opened = !opened;
         }
-        else {
-            document.getElementById("menu_div").style.visibility = "visible";
-            menu.animateAuto("fast",function () {
-                setVisibilityToElements(document.getElementsByClassName("menu_element"), "visible");
-            });
-        }
-        opened = opened === false;
     });
 });

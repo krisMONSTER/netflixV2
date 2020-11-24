@@ -5,3 +5,12 @@ img#logo_img{
     vertical-align: middle;
     margin-left: 30px;
 }
+
+img#account_img{
+    width: 75px;
+    line-height: 1.5;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 30px;
+    cursor: pointer;
+}

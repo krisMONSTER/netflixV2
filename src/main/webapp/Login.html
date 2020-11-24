@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>MovOn</title>
+    <link rel="stylesheet" href="CSS/GeneralStyle.css">
     <link rel="stylesheet" href="CSS/LoginStyle.css">
     <link rel="stylesheet" href="CSS/ImagesStyle.css">
+    <script src="JavaScript/jquery-3.5.1.js"></script>
+    <script src="JavaScript/LoginScript.js"></script>
 </head>
 <body>
 <div id="banner">
@@ -12,7 +15,7 @@
     <p id="test"></p>
 </div>
 <div id="form">
-    <form name="form" action="./LogIn" method="post">
+    <form name="form" onsubmit="logIn()" method="post">
         <br>
         <a id="login_label">Login</a><br>
         <label><input type="text" name="login" id="login"></label><br>

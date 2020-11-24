@@ -1,9 +1,9 @@
 function mouseOverPanelElement(element){
-    element.style.background = "rgba(100,100,100,1)"
+    element.style.background = "rgba(100,100,100,1)";
 }
 
 function mouseOutPanelElement(element){
-    element.style.background = "rgba(100,100,100,0.5)"
+    element.style.background = "rgba(100,100,100,0.5)";
 }
 
 $(document).ready(function () {

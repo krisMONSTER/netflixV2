@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>MovOn</title>
+    <link rel="icon" href="images/logoV2.png" type="image/icon type">
+    <link rel="stylesheet" href="CSS/GeneralStyle.css">
+    <link rel="stylesheet" href="CSS/WelcomPageStyle.css">
+    <link rel="stylesheet" href="CSS/ImagesStyle.css">
+    <script src="JavaScript/jquery-3.5.1.js"></script>
+    <script src="JavaScript/MenuTrigger.js"></script>
+    <script src="JavaScript/LoggedOutScript.js"></script>
+</head>
+<body style="background-color: steelblue">
+<div id="banner_div">
+    <div id="logo_div"><a href="LoggedOut.html"><img id="logo_img" src="images/logoV2.png" alt="Logo firmy"></a></div>
+    <div id="user_div"><img id="account_img" src="images/user_szary.png" alt="Konto"></div>
+</div>
+<div id="panel">
+    <div class="wrap">
+        <div class="panel_element" onmouseover="mouseOverPanelElement(this)" onmouseout="mouseOutPanelElement(this)" id="search_div">
+            <span id="search"></span>
+        </div>
+        <div class="panel_element" onmouseover="mouseOverPanelElement(this)" onmouseout="mouseOutPanelElement(this)" id="test_div">
+            <span>Testowy formularz</span>
+        </div>
+    </div>
+</div>
+<div id="content_div"></div>
+<div id="menu_div">
+    <p onclick="window.location.href = './Login.html'" class="menu_element" id="log_in"></p>
+    <hr class="menu_element">
+    <p class="menu_element" id="register"></p>
+</div>
+</body>
+<script src="JavaScript/LoggedOutLanguage.js"></script>
+</html>
