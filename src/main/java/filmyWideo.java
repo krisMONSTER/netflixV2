@@ -8,13 +8,13 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+//import com.google.gson.JsonElement; komentarze krysi
+//import com.google.gson.JsonParser;
 
 public class filmyWideo {
     private static ArrayList<String> genresList = new ArrayList<>();
     public static void main(String[] args) throws Exception {
-
+/* komentarz krysi
         // PLIKI I ZAINICJOWANIE JE SKRYPTEM
         FileWriter sqlFile = new FileWriter("bazavideo.txt",true);
         FileWriter sqlFile2 = new FileWriter("bazagenres.txt",true);
@@ -65,6 +65,8 @@ public class filmyWideo {
 
         }while(i<1000);
 
+ */
+
 
 
 
@@ -82,10 +84,12 @@ public class filmyWideo {
        writeMovie(sqlFile,title,genre,description);
         writeGenre(sqlFile2,genre);
 */
-
+/* komentarz krysi
         sqlFile.close();
         sqlFile2.close();
         //  id  TITLE   idCAT   COST=10 DESCRIPTION     endDate=costam  status
+
+ */
     }
 
     private static void writeMovie(FileWriter file, String title, String genresString, String description) throws  Exception{

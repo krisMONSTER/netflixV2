@@ -1,3 +1,4 @@
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,53 +11,35 @@ import java.sql.*;
 @WebServlet("/LogIn")
 public class LogIn extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
         try {
-            Connection baza = DatabaseConnection.initializeDatabase();
-            PreparedStatement st = baza.prepareStatement("SELECT login,password,status FROM account WHERE login=(?) AND password=(?)");
-            st.setString(1,request.getParameter("login"));
-            st.setString(2,request.getParameter("password"));
-            //Statement stmt = null;
-            //stmt = baza.createStatement();
-            //ResultSet rs = stmt.executeQuery("SELECT login,password,status FROM account");
-            ResultSet rs = null;
-            if(st.execute()){
-                rs = st.getResultSet();
+            conn = DatabaseConnection.initializeDatabase();
+            ps = conn.prepareStatement("SELECT login,password,status FROM account WHERE login=(?) AND password=(?)");
+            ps.setString(1,request.getParameter("login"));
+            ps.setString(2,request.getParameter("password"));
+            if(ps.execute()){
+                rs = ps.getResultSet();
                 rs.next();
                 String login = "";
-                PrintWriter out = response.getWriter();
                 try {
                     login = rs.getString("login");
+                    response.getWriter().write("succeeded");
                 }catch (SQLException e){
-                    out.println("<html><body><b>nie ma"
-                            + "</b></body></html>");
+                    response.getWriter().write("failed");
                 }
-                System.out.println(login);
-                //response.sendRedirect(request.getContextPath() + "?a=5");
-                response.getOutputStream().println("<script type='text/javascript'>document.getElementById(\"messages\");</script>");
-                out.println("<html><body><b>" + login
-                        + "</b></body></html>");
-
             }
-            if(st != null)
-                rs.close();
-
-
-                    /*
-            st.setString(1,request.getParameter("login"));
-            st.setString(2,request.getParameter("haslo"));
-            st.setString(3,request.getParameter("email"));
-
-
-            st.setInt(4,Integer.parseInt(request.getParameter("weryfikacja")));
-
-                     */
-            baza.close();
-        } catch(Exception e){
+        } catch (SQLException e) {
+            response.getWriter().write("SQLfail");
+        } catch (ClassNotFoundException e){
             e.printStackTrace();
+        } finally {
+            try { rs.close(); } catch (Exception ignored) {}
+            try { ps.close(); } catch (Exception ignored) {}
+            try { conn.close(); } catch (Exception ignored) {}
         }
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }
