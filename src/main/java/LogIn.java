@@ -20,9 +20,9 @@ public class LogIn extends HttpServlet {
         try {
             conn = DatabaseConnection.initializeDatabase();
             ps = conn.prepareStatement("SELECT login,password,status FROM account WHERE login=(?) AND password=(?)");
-            ps.setString(1,request.getParameter("login"));
-            ps.setString(2,request.getParameter("password"));
-            if(ps.execute()){
+            ps.setString(1, request.getParameter("login"));
+            ps.setString(2, request.getParameter("password"));
+            if (ps.execute()) {
                 rs = ps.getResultSet();
                 rs.next();
                 String login;
@@ -30,18 +30,29 @@ public class LogIn extends HttpServlet {
                     login = rs.getString("login");
 
                     response.getWriter().write("succeeded");
-                }catch (SQLException e){
+
+                } catch (SQLException e) {
                     response.getWriter().write("failed");
                 }
             }
         } catch (SQLException e) {
             response.getWriter().write("SQLfail");
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
-            try { rs.close(); } catch (Exception ignored) {}
-            try { ps.close(); } catch (Exception ignored) {}
-            try { conn.close(); } catch (Exception ignored) {}
+            try {
+                rs.close();
+            } catch (Exception ignored) {
+            }
+            try {
+                ps.close();
+            } catch (Exception ignored) {
+            }
+            try {
+                conn.close();
+            } catch (Exception ignored) {
+            }
+
         }
     }
 }
