@@ -1,21 +1,24 @@
-function logIn(){
-    $(document).ready(function(){
-        $.ajax({
-            type: "POST",
-            url: "LogIn",
-            data: $('form[name="form"]').serialize(),
-            async: false,
-            success: function(response){
-                if(response === "succeeded"){
-                    window.location.href = "./LoggedIn.html";
-                }
-                else if(response === "failed"){
-                    alert("niepoprawne dane");
-                }
-                else if(response === "SQLfail") {
-                    alert("kod jest błędny ! ! !");
-                }
-            }
-        });
+function logIn() {
+    test().then(handleData);
+}
+
+function handleData(data) {
+    if(data === "succeeded"){
+        window.location.href = "./LoggedIn.html";
+    }
+    else if(data === "failed"){
+        alert("niepoprawne dane");
+    }
+    else if(data === "SQLfail") {
+        alert("kod jest błędny ! ! !");
+    }
+}
+
+function test() {
+    return $.ajax({
+        type: "POST",
+        url: "LogIn",
+        async: false,
+        data: $('form[name="form"]').serialize(),
     });
 }

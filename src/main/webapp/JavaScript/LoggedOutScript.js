@@ -1,3 +1,5 @@
+
+
 function mouseOverPanelElement(element){
     element.style.background = "rgba(100,100,100,1)";
 }
@@ -6,10 +8,30 @@ function mouseOutPanelElement(element){
     element.style.background = "rgba(100,100,100,0.5)";
 }
 
+function startSearchThread(){
+    let searchThreadStorage = "";
+    let currentText;
+    search()
+    function search(){
+        currentText = document.getElementById("search_form").elements[0].value;
+        if(currentText == null) return;
+        if(searchThreadStorage !== currentText){
+            searchThreadStorage = currentText;
+            document.getElementById("p_content").innerHTML = searchThreadStorage;
+        }
+        setTimeout(search, 1000);
+    }
+}
+
+
 $(document).ready(function () {
 
     $("#search_div").click(function() {
-        $("#content_div").html("<p>halo halo</p>");
+        $("#content_options_div").html("<form id='search_form' method='post'>" +
+            "<input type='text' placeholder='Search..' name='search'>" +
+            "</form>");
+        $("#content_div").html("<p id='p_content'></p>");
+        startSearchThread();
     });
 
     $("#test_div").click(function () {
@@ -28,5 +50,5 @@ $(document).ready(function () {
             "<label for=\"nie\">nie</label><br>" +
             "<input type=\"submit\" value=\"Submit\">" +
             "</form>");
-    })
+    });
 });
