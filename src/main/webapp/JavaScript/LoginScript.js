@@ -4,7 +4,8 @@ function logIn() {
 
 function handleData(data) {
     if(data === "succeeded"){
-        window.location.href = "./LoggedIn.html";
+        //window.location.href = "${pageContext.request.contextPath}/WEB-INF/LoggedIn.html";
+        alert("yaaay");
     }
     else if(data === "failed"){
         alert("niepoprawne dane");

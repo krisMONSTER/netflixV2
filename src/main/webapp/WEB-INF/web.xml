@@ -4,6 +4,30 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <welcome-file-list>
-        <welcome-file>LoggedOut.html</welcome-file>
+        <welcome-file>Welcome</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-class>navigation.Welcome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/Welcome</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginNav</servlet-name>
+        <servlet-class>navigation.LoginNav</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginNav</servlet-name>
+        <url-pattern>/LoginNav</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LogIn</servlet-name>
+        <servlet-class>LogIn</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogIn</servlet-name>
+        <url-pattern>/LogIn</url-pattern>
+    </servlet-mapping>
 </web-app>
