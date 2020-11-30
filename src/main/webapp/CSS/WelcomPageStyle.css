@@ -40,6 +40,11 @@ div#panel {
     cursor: pointer;
 }
 
+div#content_options_div{
+    width: 100%;
+    background-color: rebeccapurple;
+}
+
 div#content_div{
     width: 100%;
     display: inline-block;

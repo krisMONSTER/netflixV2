@@ -1,4 +1,3 @@
-
 function logIn() {
     test().then(handleData);
 }
@@ -6,8 +5,6 @@ function logIn() {
 function handleData(data) {
     if(data === "succeeded"){
         window.location.href = "./LoggedIn.html";
-        //alert(window.location.href);
-
     }
     else if(data === "failed"){
         alert("niepoprawne dane");
