@@ -1,36 +1,50 @@
-
-
-function mouseOverPanelElement(element){
+function mouseOverPanelElement(element) {
     element.style.background = "rgba(100,100,100,1)";
 }
 
-function mouseOutPanelElement(element){
+function mouseOutPanelElement(element) {
     element.style.background = "rgba(100,100,100,0.5)";
 }
 
-function startSearchThread(){
+function startSearchThread() {
     let searchThreadStorage = "";
     let currentText;
-    search()
-    function search(){
+    search();
+    function search() {
         currentText = document.getElementById("search_form").elements[0].value;
-        if(currentText == null) return;
-        if(searchThreadStorage !== currentText){
+        if (currentText == null) return;
+        if (searchThreadStorage !== currentText) {
             searchThreadStorage = currentText;
-            document.getElementById("p_content").innerHTML = searchThreadStorage;
+            executerequest();
         }
         setTimeout(search, 1000);
     }
 }
 
+function executerequest() {
+    request().then(handleData);
+}
+
+function request() {
+    return $.ajax({
+        type: "POST",
+        url: "searchMovies",
+        async: false,
+        data: $('form[name="search_form"]').serialize()
+    });
+
+}
+
+function handleData(data) {
+    document.getElementById("content_div").innerHTML = data;
+}
 
 $(document).ready(function () {
 
-    $("#search_div").click(function() {
-        $("#content_options_div").html("<form id='search_form' method='post'>" +
+    $("#search_div").click(function () {
+        $("#content_options_div").html("<form name='search_form' id='search_form' method='post'>" +
             "<input type='text' placeholder='Search..' name='search'>" +
             "</form>");
-        $("#content_div").html("<p id='p_content'></p>");
         startSearchThread();
     });
 
