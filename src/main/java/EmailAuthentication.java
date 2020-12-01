@@ -1,4 +1,4 @@
-import jakarta.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,13 +10,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-@WebServlet("/EmailAuthentication")
+@WebServlet("/authenticate")
 public class EmailAuthentication extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("WTF");
-        /*
+
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
             PreparedStatement ifauthenticated = baza.prepareStatement("SELECT login, email, verified FROM account WHERE email=(?)");
@@ -67,6 +67,5 @@ public class EmailAuthentication extends HttpServlet {
 
 
 
-         */
     }
 }

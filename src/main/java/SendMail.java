@@ -40,7 +40,7 @@ public class SendMail {
      	      /*  Create an instance of MimeMessage,
      	          it accept MIME types and headers
      	      */
-            String link = "http://localhost:8080/javaServ_war/EmailAuthentication?code=" + Encryption.encrypt(email_to, Encryption.createKey("hasloemail"));
+            String link = "http://localhost:8080/javaServ_war/authenticate?code=" + Encryption.encrypt(email_to, Encryption.createKey("hasloemail"));
 
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email_from));
