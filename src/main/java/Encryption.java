@@ -39,14 +39,30 @@ public class Encryption {
         }
     }
 
+
     public static String createKey(String string)
     {
         String temp = "";
         if(string.length()>16)
         {
-
+            for(int i=0;i<16;i++)
+            {
+                temp += string.charAt(i);
+            }
         }
-        return null;
+        else if(string.length()<16)
+        {
+            temp = string;
+            for(int i=string.length()-1;i<16;i++)
+            {
+                temp += "1";
+            }
+        }
+        else
+        {
+            temp = string;
+        }
+        return temp;
     }
 
     public static String decrypt(String string, String newKey) {

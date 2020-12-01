@@ -49,7 +49,7 @@ public class Register extends HttpServlet {
                     st.setString(1, request.getParameter("login"));
 
                     //szyfrowanie hasła
-                    String key = "ktwijbth123emJe#"; //TODO przechowywania klucza
+                    String key = Encryption.createKey(request.getParameter("login"));
                     String encryptedPassword = Encryption.encrypt(request.getParameter("haslo"),key);
                     st.setString(2,encryptedPassword);
                     //koniec

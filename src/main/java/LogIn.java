@@ -27,7 +27,7 @@ public class LogIn extends HttpServlet {
 
 
             //szyfrowanie hasła
-            String key = "ktwijbth123emJe#"; //TODO przechowywania klucza
+            String key = Encryption.createKey(request.getParameter("login"));
             String encryptedPassword = Encryption.encrypt(request.getParameter("haslo"),key);
             ps.setString(2, encryptedPassword);
             //koniec
