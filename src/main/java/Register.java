@@ -47,14 +47,14 @@ public class Register extends HttpServlet {
                 } else {
                     PreparedStatement st = baza.prepareStatement("INSERT INTO account (login,password,email,verified)VALUES (?,?,?,?)");
                     st.setString(1, request.getParameter("login"));
-                /*
-                 String zaszyfrowane = request.getParameter("haslo");
-                //zaszyfrowane.szyfruj
-                st.setString(2,zaszyfrowane);
 
-                */
+                    //szyfrowanie hasła
+                    String key = "ktwijbth123emJe#"; //TODO przechowywania klucza
+                    String encryptedPassword = Encryption.encrypt(request.getParameter("haslo"),key);
+                    st.setString(2,encryptedPassword);
+                    //koniec
 
-                    st.setString(2, request.getParameter("haslo"));
+
                     st.setString(3, request.getParameter("email"));
 
                     SendMail.send(request.getParameter("email"));

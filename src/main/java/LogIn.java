@@ -22,8 +22,17 @@ public class LogIn extends HttpServlet {
         try {
             conn = DatabaseConnection.initializeDatabase();
             ps = conn.prepareStatement("SELECT login,password,status FROM account WHERE login=(?) AND password=(?)");
+
             ps.setString(1, request.getParameter("login"));
-            ps.setString(2, request.getParameter("password"));
+
+
+            //szyfrowanie hasła
+            String key = "ktwijbth123emJe#"; //TODO przechowywania klucza
+            String encryptedPassword = Encryption.encrypt(request.getParameter("haslo"),key);
+            ps.setString(2, encryptedPassword);
+            //koniec
+
+
             if (ps.execute()) {
                 rs = ps.getResultSet();
                 rs.next();

@@ -1,6 +1,6 @@
+import jakarta.servlet.http.HttpServlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -36,7 +36,7 @@ public class EmailAuthentication extends HttpServlet {
                     } else {
                         PreparedStatement updateverification = baza.prepareStatement("UPDATE account SET verified = 1 WHERE email=(?)");
 
-                        //tutaj tez potem trzeba deszyfrowac email xd
+                        //tutaj tez potem trzeba deszyfrowac email xd ??
 
                         updateverification.setString(1, request.getParameter("code"));
                         updateverification.execute();
