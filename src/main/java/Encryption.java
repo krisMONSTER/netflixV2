@@ -53,7 +53,7 @@ public class Encryption {
         else if(string.length()<16)
         {
             temp = string;
-            for(int i=string.length()-1;i<16;i++)
+            for(int i=string.length();i<16;i++)
             {
                 temp += "1";
             }
