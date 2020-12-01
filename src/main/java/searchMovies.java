@@ -42,7 +42,7 @@ public class searchMovies extends HttpServlet {
                     System.out.println(data);
                 }
                 /*request.setAttribute("data", data);
-                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/LoggedOut.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/LoggedIn.jsp");
                 rd.forward(request, response);
                  */
 

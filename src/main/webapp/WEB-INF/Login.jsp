@@ -21,10 +21,9 @@
     <a href="${pageContext.request.contextPath}/Welcome">
         <img src="${pageContext.request.contextPath}/images/logoV2.png" id="logo_img" style="width: 150px" alt="Logo firmy">
     </a>
-    <p id="test"></p>
 </div>
 <div id="form">
-    <form name="form" onsubmit="logIn()" method="post">
+    <form name="form" action="${pageContext.request.contextPath}/LogIn" method="post"> <!-- <form name="form" action="javascript:void(0);" onsubmit="logIn()" method="post">-->
         <br>
         <a id="login_label">Login</a><br>
         <label><input type="text" name="login" id="login"></label><br>

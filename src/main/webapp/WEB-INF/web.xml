@@ -30,4 +30,12 @@
         <servlet-name>LogIn</servlet-name>
         <url-pattern>/LogIn</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>LogOut</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -11,12 +11,16 @@ import java.io.IOException;
 @WebServlet("/navigation.Login")
 public class LoginNav extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Login.jsp");
-        dispatcher.forward(request,response);
+        execute(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        execute(request, response);
+    }
+
+    private void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Login.jsp");
+        dispatcher.forward(request,response);
     }
 }

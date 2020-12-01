@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/ImagesStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/MenuTrigger.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/LoggedOutScript.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/LoggedInScript.js"></script>
 
 </head>
 <body style="background-color: steelblue">
@@ -43,11 +43,9 @@
 
 </div>
 <div id="menu_div">
-    <p onclick="window.location.href = '${pageContext.request.contextPath}/LoginNav'" class="menu_element"
-       id="log_in"></p>
-    <hr class="menu_element">
-    <p class="menu_element" id="register"></p>
+    <p onclick="window.location.href = '${pageContext.request.contextPath}/LogOut'" class="menu_element" id="log_out"></p>
+    <!-- <hr class="menu_element"> -->
 </div>
 </body>
-<script src="${pageContext.request.contextPath}/JavaScript/LoggedOutLanguage.js"></script>
+<script src="${pageContext.request.contextPath}/JavaScript/LoggedInLanguage.js"></script>
 </html>

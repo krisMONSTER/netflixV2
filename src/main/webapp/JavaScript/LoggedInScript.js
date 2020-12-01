@@ -15,13 +15,13 @@ function startSearchThread() {
         if (currentText == null) return;
         if (searchThreadStorage !== currentText) {
             searchThreadStorage = currentText;
-            executerequest();
+            executeRequest();
         }
         setTimeout(search, 1000);
     }
 }
 
-function executerequest() {
+function executeRequest() {
     request().then(handleData);
 }
 
@@ -42,7 +42,7 @@ function handleData(data) {
 $(document).ready(function () {
 
     $("#search_div").click(function () {
-        $("#content_options_div").html("<form name='search_form' id='search_form' method='post'>" +
+        $("#content_options_div").html("<form name='search_form' id='search_form' action='javascript:void(0);' method='post'>" +
             "<input type='text' placeholder='Search..' name='search'>" +
             "</form>");
         startSearchThread();

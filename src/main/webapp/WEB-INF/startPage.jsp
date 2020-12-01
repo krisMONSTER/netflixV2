@@ -38,7 +38,7 @@
                 <a href="${pageContext.request.contextPath}/LoginNav" class="button" id="signup">Sign Up</a>
             </li>
             <li class="navbar__item">
-                <a href="Login.html" class="navbar__link" id="login">Log In</a>
+                <a href="${pageContext.request.contextPath}/LoginNav" class="navbar__link" id="login">Log In</a>
             </li>
         </ul>
     </div>
