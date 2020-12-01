@@ -28,8 +28,8 @@ public class LogIn extends HttpServlet {
 
             //szyfrowanie hasła
             String key = Encryption.createKey(request.getParameter("login"));
-            String encryptedPassword = Encryption.encrypt(request.getParameter("haslo"),key);
-            ps.setString(2, encryptedPassword);
+            String encryptedPassword = Encryption.encrypt(request.getParameter("password"),key);
+            ps.setString(2, encryptedPassword );
             //koniec
 
 

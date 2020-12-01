@@ -14,6 +14,10 @@
         <servlet-name>Welcome</servlet-name>
         <url-pattern>/Welcome</url-pattern>
     </servlet-mapping>
+
+
+
+
     <servlet>
         <servlet-name>LoginNav</servlet-name>
         <servlet-class>navigation.LoginNav</servlet-class>

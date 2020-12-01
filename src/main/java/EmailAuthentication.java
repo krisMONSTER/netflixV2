@@ -1,4 +1,5 @@
 import jakarta.servlet.http.HttpServlet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,17 +10,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-@WebServlet("/authenticate")
+@WebServlet("/EmailAuthentication")
 public class EmailAuthentication extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("WTF");
+        /*
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
             PreparedStatement ifauthenticated = baza.prepareStatement("SELECT login, email, verified FROM account WHERE email=(?)");
 
             // chyba ze tu potem jak bedzie zamieniony email na zakodowany
-            ifauthenticated.setString(1, request.getParameter("code"));
+
+            System.out.println(Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
+            ifauthenticated.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
 
             ResultSet ifauthent_rs;
 
@@ -61,5 +66,7 @@ public class EmailAuthentication extends HttpServlet {
         }
 
 
+
+         */
     }
 }
