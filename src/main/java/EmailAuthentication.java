@@ -15,7 +15,6 @@ public class EmailAuthentication extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("WTF");
 
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
@@ -43,7 +42,7 @@ public class EmailAuthentication extends HttpServlet {
 
                         //tutaj tez potem trzeba deszyfrowac email xd ??
 
-                        updateverification.setString(1, request.getParameter("code"));
+                        updateverification.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
                         updateverification.execute();
                         out.println("<html><body><b>" + "You have successfully verified: " + request.getParameter("code")
                                 + "</b></body></html>");
