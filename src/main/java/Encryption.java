@@ -40,26 +40,18 @@ public class Encryption {
     }
 
 
-    public static String createKey(String string)
-    {
+    public static String createKey(String string) {
         String temp = "";
-        if(string.length()>16)
-        {
-            for(int i=0;i<16;i++)
-            {
+        if (string.length() > 16) {
+            for (int i = 0; i < 16; i++) {
                 temp += string.charAt(i);
             }
-        }
-        else if(string.length()<16)
-        {
+        } else if (string.length() < 16) {
             temp = string;
-            for(int i=string.length();i<16;i++)
-            {
+            for (int i = string.length(); i < 16; i++) {
                 temp += "1";
             }
-        }
-        else
-        {
+        } else {
             temp = string;
         }
         return temp;
@@ -70,7 +62,10 @@ public class Encryption {
         Key key = keyGenerator(newKey);
         try {
             cipher = Cipher.getInstance("AES");
-            if (key == null | cipher == null) {
+            System.out.println(string);
+            System.out.println(string.length());
+
+            if (key == null | cipher == null | string.length() % 16 != 0) {
                 return null;
             } else {
                 cipher.init(Cipher.DECRYPT_MODE, key);

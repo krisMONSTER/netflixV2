@@ -1,3 +1,4 @@
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 
 import javax.servlet.ServletException;
@@ -15,7 +16,9 @@ public class EmailAuthentication extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        PrintWriter out = response.getWriter();
+        out.write("<html><body><div id='serlvetResponse' style='text-align: center;'>");
+        RequestDispatcher dispatcher;
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
             PreparedStatement ifauthenticated = baza.prepareStatement("SELECT login, email, verified FROM account WHERE email=(?)");
@@ -28,34 +31,39 @@ public class EmailAuthentication extends HttpServlet {
             ResultSet ifauthent_rs;
 
 
-            PrintWriter out = response.getWriter();
             if (ifauthenticated.execute()) {
                 ifauthent_rs = ifauthenticated.getResultSet();
 
                 //if there is an email connected to this link
                 if (ifauthent_rs.next() == true) {
                     if (ifauthent_rs.getInt("verified") == 1) {
-                        out.println("<html><body><b>" + request.getParameter("code") + " has already been verified."
-                                + "</b></body></html>");
+
+                        out.write("<p id='errMsg' style='color: red; font-size: larger;'>This Email has already been verified." + "</p>");
+                        dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
+                        dispatcher.include(request, response);
+
                     } else {
                         PreparedStatement updateverification = baza.prepareStatement("UPDATE account SET verified = 1 WHERE email=(?)");
-
-                        //tutaj tez potem trzeba deszyfrowac email xd ??
-
                         updateverification.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
                         updateverification.execute();
-                        out.println("<html><body><b>" + "You have successfully verified: " + request.getParameter("code")
-                                + "</b></body></html>");
+                        out.write("<p id='errMsg' style='color: red; font-size: larger;'>You have successfully verified your email." + "</p>");
+                        dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
+                        dispatcher.include(request, response);
                         updateverification.close();
+
+
                     }
                 }
                 //no email connected to this link
                 else {
-                    out.println("<html><body><b>" + "No such email connected to any acoount: " + request.getParameter("code")
-                            + "</b></body></html>");
+                    out.write("<p id='errMsg' style='color: red; font-size: larger;'>Wrong activation link." + "</p>");
+                    dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
+                    dispatcher.include(request, response);
 
                 }
             }
+            out.write("</div></body></html>");
+            out.close();
 
             ifauthenticated.close();
             baza.close();
@@ -63,7 +71,6 @@ public class EmailAuthentication extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-
 
 
     }

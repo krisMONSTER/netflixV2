@@ -41,7 +41,7 @@ public class SendMail {
      	          it accept MIME types and headers
      	      */
             String link = "http://localhost:8080/javaServ_war/authenticate?code=" + Encryption.encrypt(email_to, Encryption.createKey("hasloemail"));
-
+            System.out.println(Encryption.encrypt(email_to, Encryption.createKey("hasloemail")));
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email_from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email_to));
@@ -54,6 +54,7 @@ public class SendMail {
 
             Transport.send(message);
             System.out.println("Wyslano xd");
+
         } catch (Exception e) {
             e.printStackTrace();
         }
