@@ -72,3 +72,13 @@ div#menu_div{
     display: inline-block;
     background-color: steelblue;
 }
+
+#movies{
+
+}
+#movies_length{
+    display: none;
+}
+#movies_filter{
+    display: none;
+}

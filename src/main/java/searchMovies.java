@@ -23,23 +23,22 @@ public class searchMovies extends HttpServlet {
     }
 
     private void execute(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("KRYSIAMYJETALERZ");
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
 
             PreparedStatement getvideos = baza.prepareStatement("SELECT DISTINCT title, description FROM video WHERE title LIKE (?) ORDER BY title");
 
             getvideos.setString(1, "%" + request.getParameter("search") + "%");
-            //getvideos.setString(1, "Aarons Blood");
+
             ResultSet rs;
             ArrayList<String[]> data = new ArrayList<>();
 
             if (getvideos.execute()) {
                 rs = getvideos.getResultSet();
                 while (rs.next()) {
-                    // rs.next();
+
                     data.add(new String[]{rs.getString(1), rs.getString(2)});
-                    System.out.println(data);
+
                 }
                 /*request.setAttribute("data", data);
                 RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/LoggedIn.jsp");
@@ -47,15 +46,22 @@ public class searchMovies extends HttpServlet {
                  */
 
                 StringBuilder reply = new StringBuilder();
+
+
+
                 reply.append(
-                        "<table border=\"1\" width=\"500\" align=\"center\">" +
-                                "        <tr bgcolor=\"#7fffd4\">" +
+                        "<table id=\"movies\" class=\"table table-bordered table-striped\" width=\"500\" align=\"center\">" +
+                                "<thead>"+
+                                "        <tr>" +
                                 "            <th><b>tytul</b></th>" +
                                 "            <th><b>opis</b></th>" +
-                                "        </tr>"
+                                "        </tr>"+
+                                "</thead>"+
+                                "<tbody>"
+
+
 
                 );
-
                 if (!request.getParameter("search").equals("")) {
                     for (String[] row : data) {
                         reply.append("<tr>");
@@ -65,7 +71,11 @@ public class searchMovies extends HttpServlet {
                     }
                 }
 
-                reply.append("</table>");
+                reply.append("</tbody>" +
+                        "</table>"
+                );
+
+
 
                 response.getWriter().write(reply.toString());
                 baza.close();

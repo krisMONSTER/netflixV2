@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: krizu
-  Date: 29.11.2020
-  Time: 21:31
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="pl">
 <head>
@@ -13,10 +6,12 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/WelcomePageStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/ImagesStyle.css">
+    <link href="${pageContext.request.contextPath}/Bootstrap/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/MenuTrigger.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LoggedInScript.js"></script>
-
+    <script src="${pageContext.request.contextPath}/DataTables/js/jquery.dataTables.js"></script>
+    <script src="${pageContext.request.contextPath}/DataTables/js/dataTables.bootstrap.js"></script>
 </head>
 <body style="background-color: steelblue">
 <div id="banner_div">
@@ -40,7 +35,6 @@
 </div>
 <div id="content_options_div"></div>
 <div id="content_div">
-
 </div>
 <div id="menu_div">
     <p onclick="window.location.href = '${pageContext.request.contextPath}/LogOut'" class="menu_element" id="log_out"></p>

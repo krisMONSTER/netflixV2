@@ -17,6 +17,7 @@ function startSearchThread() {
             searchThreadStorage = currentText;
             executeRequest();
         }
+
         setTimeout(search, 1000);
     }
 }
@@ -37,14 +38,22 @@ function request() {
 
 function handleData(data) {
     document.getElementById("content_div").innerHTML = data;
+
+    $("#movies").dataTable({
+        "iDisplayLength": 10,
+        "aLengthMenu": [[10, 25, 50, 100,  -1], [10, 25, 50, 100, "All"]]
+    });
+
 }
 
 $(document).ready(function () {
+
 
     $("#search_div").click(function () {
         $("#content_options_div").html("<form name='search_form' id='search_form' action='javascript:void(0);' method='post'>" +
             "<input type='text' placeholder='Search..' name='search'>" +
             "</form>");
+
         startSearchThread();
     });
 
