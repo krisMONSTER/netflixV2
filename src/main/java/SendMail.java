@@ -28,7 +28,6 @@ public class SendMail {
         /* Pass Properties object(props) and Authenticator object
            for authentication to Session instance
         */
-
         Session session = Session.getInstance(props, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(email_from, pass);

@@ -19,18 +19,17 @@
 <body>
 <div id="banner">
     <a href="${pageContext.request.contextPath}/Welcome">
-        <img src="${pageContext.request.contextPath}/images/logoV2.png" id="logo_img" style="width: 150px" alt="Logo firmy">
+        <img src="${pageContext.request.contextPath}/images/logoBialeV2.png" id="logo_img" style="width: 150px" alt="Logo firmy">
     </a>
 </div>
-<div id="form">
-    <form name="form" action="${pageContext.request.contextPath}/LogIn" method="post"> <!-- <form name="form" action="javascript:void(0);" onsubmit="logIn()" method="post">-->
-        <br>
+<div id="form_div">
+    <form id="form" name="form" action="${pageContext.request.contextPath}/LogIn" method="post"> <!-- <form name="form" action="javascript:void(0);" onsubmit="logIn()" method="post">-->
         <a id="login_label">Login</a><br>
-        <label><input type="text" name="login" id="login"></label><br>
+        <label><input type="text" name="login" id="login"></label><br><br>
         <a id="pass_label">Haslo</a><br>
-        <label><input type="password" name="password" id="password"></label><br><br>
-        <input type="submit" name="submit"><br>
-        <br>
+        <label><input type="password" name="password" id="password"></label><br><br><br>
+        <!-- <input type="submit" name="submit"><br> -->
+        <div id="submit"><p id="submit_text">Login</p></div>
     </form>
 </div>
 </body>

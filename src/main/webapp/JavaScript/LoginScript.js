@@ -1,3 +1,9 @@
+$(document).ready(function () {
+    $("#submit").click(function () {
+        $('#form').submit();
+    });
+});
+
 function logIn() {
     test().then(handleData);
 }
