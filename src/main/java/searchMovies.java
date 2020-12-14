@@ -53,8 +53,8 @@ public class searchMovies extends HttpServlet {
                         "<table id=\"movies\" class=\"table table-bordered table-striped\" width=\"500\" align=\"center\">" +
                                 "<thead>"+
                                 "        <tr>" +
-                                "            <th><b>tytul</b></th>" +
-                                "            <th><b>opis</b></th>" +
+                                "            <th><b><span>tytul</span></b></th>" +
+                                "            <th><b><span>opis</span></b></th>" +
                                 "        </tr>"+
                                 "</thead>"+
                                 "<tbody>"
@@ -65,8 +65,8 @@ public class searchMovies extends HttpServlet {
                 if (!request.getParameter("search").equals("")) {
                     for (String[] row : data) {
                         reply.append("<tr>");
-                        reply.append("<td>" + row[0] + "</td>");
-                        reply.append("<td>" + row[1] + "</td>");
+                        reply.append("<td><span>" + row[0] + "</span></td>");
+                        reply.append("<td><span>" + row[1] + "</span></td>");
                         reply.append("</tr>");
                     }
                 }

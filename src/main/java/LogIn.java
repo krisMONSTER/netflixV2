@@ -43,7 +43,6 @@ public class LogIn extends HttpServlet {
                         login = rs.getString("login");
                         HttpSession session = request.getSession();
                         session.setAttribute("user", login);
-                        System.out.println(session.getAttribute("user"));
                         response.sendRedirect("Welcome");
                     } else {
                         out.write("<p id='errMsg' style='color: red; font-size: larger;'>Aktywuj swoje konto!</p>");

@@ -20,7 +20,7 @@ function setVisibilityToElements(elements, visibility){
 }
 
 $(document).ready(function (){
-    $("#account_img").click(function () {
+    $("#language").click(function () {
         if(isReady) {
             isReady = false;
             const menu = $("#menu_div");

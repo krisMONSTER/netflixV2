@@ -10,8 +10,11 @@
 <head>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-    <title>Mov On</title>
+    <title>MovOn</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/newStyles.css">
+    <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/app.js"></script>
 </head>
 <body>
 <!-- Navbar Section -->
@@ -66,6 +69,5 @@
         </div>
     </div>
 </div>
-<script src="${pageContext.request.contextPath}/JavaScript/app.js"></script>
 </body>
 </html>

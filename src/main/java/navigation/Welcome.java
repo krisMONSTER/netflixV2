@@ -15,7 +15,6 @@ import java.io.IOException;
 @WebServlet("/navigation.Welcome")
 public class Welcome extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("WELCOME");
         HttpSession session = request.getSession();
         String user = (String) session.getAttribute("user");
         RequestDispatcher dispatcher;
