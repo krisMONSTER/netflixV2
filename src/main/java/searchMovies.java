@@ -50,11 +50,11 @@ public class searchMovies extends HttpServlet {
 
 
                 reply.append(
-                        "<table id=\"movies\" class=\"table table-bordered table-striped\" width=\"500\" align=\"center\">" +
+                        "<table id=\"movies\" class=\"table table-bordered table-striped\" width=\"60%\" align=\"center\">" +
                                 "<thead>"+
                                 "        <tr>" +
-                                "            <th><b><span>tytul</span></b></th>" +
-                                "            <th><b><span>opis</span></b></th>" +
+                                "            <th><b><span>Title</span></b></th>" +
+                                "            <th><b><span>Description</span></b></th>" +
                                 "        </tr>"+
                                 "</thead>"+
                                 "<tbody>"
