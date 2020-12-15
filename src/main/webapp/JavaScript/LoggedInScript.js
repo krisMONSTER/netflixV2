@@ -1,15 +1,28 @@
 function startSearchThread() {
     let searchThreadStorage = "";
     let currentText;
+    let changedTrigger = false;
     search();
     function search() {
         currentText = document.getElementById("search_form").elements[0].value;
         if (currentText == null) return;
-        if (searchThreadStorage !== currentText) {
-            searchThreadStorage = currentText;
-            executeRequest();
+        if(currentText === searchThreadStorage && !changedTrigger){
+            setTimeout(search, 250);
         }
-        setTimeout(search, 1000);
+        else if(currentText !== searchThreadStorage && !changedTrigger){
+            changedTrigger = true;
+            searchThreadStorage = currentText;
+            setTimeout(search, 750);
+        }
+        else if(currentText === searchThreadStorage && changedTrigger){
+            executeRequest();
+            changedTrigger = false;
+            setTimeout(search, 250);
+        }
+        else if(currentText !== searchThreadStorage && changedTrigger){
+            searchThreadStorage = currentText;
+            setTimeout(search, 750);
+        }
     }
 }
 
@@ -40,7 +53,8 @@ function handleData(data) {
 $(document).ready(function () {
 
     $("#search_div").click(function () {
-        $("#content_options_div").html("<form name='search_form' id='search_form' action='javascript:void(0);' method='post'>" +
+        $("#content_options_div").html("<form name='search_form' id='search_form' action='javascript:void(0);' " +
+            "method='post' autocomplete='off'>" +
             "<input type='text' placeholder='Search...' name='search'>" +
             "</form>");
         startSearchThread();
