@@ -1,0 +1,158 @@
+img#logo_img {
+    width: 80px;
+    background-size: 100%;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.navbar {
+    background: #131313;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__link {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 125px;
+    text-decoration: none;
+    height: 100%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.navbar__link:hover {
+    color: #fcb045;
+    transition: all 0.3s ease;
+}
+
+#panel {
+    text-align: center;
+    background: linear-gradient(to bottom, #131313, #0c0c0c);
+}
+
+#panel_content {
+    display: inline-block;
+    padding: 50px;
+}
+
+.panel_element {
+    display: inline-block;
+    float: left;
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: rgba(100, 100, 100, 0.5);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.panel_element:hover {
+    background-color: rgba(100, 100, 100, 1);
+    transition: background-color 0.3s ease;
+}
+
+.panel_element span {
+    color: #fff;
+    transition: color 0.3s ease;
+    font-size: large;
+}
+
+.panel_element:hover span {
+    color: #fcb045;
+    transition: color 0.3s ease;
+}
+
+div#language_div {
+    border: thin solid lightgray;
+    top: 90px;
+    right: 20px;
+    height: 0;
+    width: 0;
+    background: #131313;
+    display: inline-block;
+    position: fixed;
+    padding-left: 15px;
+    padding-right: 15px;
+    visibility: hidden;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 999;
+}
+
+.language_element {
+    visibility: hidden;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.language_element:hover {
+    color: #fcb045;
+    transition: color 0.3s ease;
+}
+
+#language_hr {
+    cursor: default;
+}
+
+table {
+    border-radius: 5px;
+    background: #131313;
+}
+
+th, tr {
+    /*text-align: center;*/
+    color: #5e5e5e;
+    padding: 8px;
+}
+
+td {
+    padding: 8px;
+    height: auto;
+}
+
+td#right{
+    text-align: right;
+}
+
+td#left{
+    text-align: left;
+}
+
+.content{
+    font-weight: bold;
+}

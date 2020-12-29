@@ -8,6 +8,11 @@ img#logo_img {
     cursor: pointer;
 }
 
+#dashboard{
+    width: 80px;
+    cursor: pointer;
+}
+
 .navbar {
     background: #131313;
     height: 80px;
@@ -58,26 +63,6 @@ img#logo_img {
     transition: all 0.3s ease;
 }
 
-div#banner_div {
-    background-color: aqua;
-    width: 100%;
-    height: 150px;
-    padding-top: 20px;
-}
-
-div#logo_div {
-    background-color: lightblue;
-    width: 50%;
-    float: left;
-}
-
-div#user_div {
-    background-color: lightgoldenrodyellow;
-    width: 50%;
-    float: right;
-    text-align: right;
-}
-
 div#panel {
     text-align: center;
     background: linear-gradient(to bottom, #131313, #0c0c0c);
@@ -91,23 +76,8 @@ div#panel {
     margin-left: 10px;
     margin-right: 10px;
     background-color: rgba(100, 100, 100, 0.5);
-    cursor: pointer;
-}
-
-#content_menu {
-    display: inline-block;
-    padding: 50px;
-}
-
-div#content_options_div {
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-}
-
-.panel_element {
-    background-color: rgba(100, 100, 100, 0.5);
     transition: background-color 0.3s ease;
+    cursor: pointer;
 }
 
 .panel_element:hover {
@@ -124,6 +94,17 @@ div#content_options_div {
 .panel_element:hover span {
     color: #fcb045;
     transition: color 0.3s ease;
+}
+
+#panel_content {
+    display: inline-block;
+    padding: 50px;
+}
+
+div#content_options_div {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
 }
 
 div#content_options_div input:not([type='submit']) {
@@ -145,7 +126,7 @@ div#content_div {
     display: inline-block;
 }
 
-div#menu_div {
+div#language_div {
     border: thin solid lightgray;
     top: 90px;
     right: 20px;
@@ -162,25 +143,26 @@ div#menu_div {
     z-index: 999;
 }
 
-.menu_element {
+.language_element {
     visibility: hidden;
     cursor: pointer;
     color: #fff;
     transition: color 0.3s ease;
 }
 
-.menu_element:hover {
+.language_element:hover {
     color: #fcb045;
     transition: color 0.3s ease;
 }
 
-#menu_hr {
+#language_hr {
     cursor: default;
 }
 
 table {
     border-radius: 10px;
-    background: linear-gradient(to bottom, #cdcdcd, #5a5a5a)
+    background: #131313;
+    /*background: linear-gradient(to bottom, #cdcdcd, #5a5a5a)*/
 
 }
 
@@ -210,18 +192,13 @@ td {
 }
 
 #movies_paginate{
-    background: linear-gradient(to bottom, #5a5a5a, #cdcdcd);
+    background: #131313;
+    /*background: linear-gradient(to bottom, #131313, #131313);*/
     border-radius: 10px;
-
-
-
-
-
 }
 
 #movies_info {
     display: none;
-
 }
 
 
@@ -232,11 +209,6 @@ td {
     text-align: center;
     padding-top: 0.25em;
     width: 20%;
-
-
-
-
-
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
