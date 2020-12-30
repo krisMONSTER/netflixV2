@@ -42,4 +42,12 @@
         <servlet-name>LogOut</servlet-name>
         <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Preferences</servlet-name>
+         <servlet-class>Preferences</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Preferences</servlet-name>
+        <url-pattern>/Preferences</url-pattern>
+    </servlet-mapping>
 </web-app>

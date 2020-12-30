@@ -30,12 +30,27 @@ function executeRequest() {
     request().then(handleData);
 }
 
+function executeRequestPref() {
+    requestPreferences().then(handleData);
+}
+
 function request() {
     return $.ajax({
         type: "POST",
         url: "searchMovies",
         async: false,
         data: $('form[name="search_form"]').serialize()
+    });
+
+}
+
+
+function requestPreferences() {
+    alert("smdsada");
+    return $.ajax({
+        type: "POST",
+        url: "Preferences",
+        async: false
     });
 
 }
@@ -63,23 +78,11 @@ $(document).ready(function () {
     $("#recommended_div").click(function () {
         $("#content_options_div").html("");
         $("#content_div").html("");
-        /*
-        "<form id=\"rejestracja\" method=\"post\" action=\"./Register\">" +
-            "Dodaj account:<br>" +
-            "<label for=\"login\">Login:</label><br>" +
-            "<input type=\"text\" id=\"login\" name=\"login\"><br>" +
-            "<label for=\"haslo\">Haslo:</label><br>" +
-            "<input type=\"password\" id=\"haslo\" name=\"haslo\"><br>" +
-            "<label for=\"email\">Email:</label><br>" +
-            "<input type=\"text\" id=\"email\" name=\"email\"><br>" +
-            "<label>Czy zweryfikowany:</label><br>" +
-            "<input type=\"radio\" id=\"tak\" name=\"weryfikacja\" value = \"1\" required>" +
-            "<label for=\"tak\">tak</label><br>" +
-            "<input type=\"radio\" id=\"nie\" name=\"weryfikacja\" value = \"0\">" +
-            "<label for=\"nie\">nie</label><br>" +
-            "<input type=\"submit\" value=\"Submit\">" +
-            "</form>"
-         */
+        executeRequestPref();
+
+
+
+
     });
 
 });

@@ -11,6 +11,7 @@ import java.sql.*;
 
 @WebServlet("/LogIn")
 public class LogIn extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -29,7 +30,7 @@ public class LogIn extends HttpServlet {
             //szyfrowanie hasła
             String key = Encryption.createKey(request.getParameter("login"));
             String encryptedPassword = Encryption.encrypt(request.getParameter("password"), key);
-            ps.setString(2, encryptedPassword);
+            ps.setString(2, request.getParameter("password"));
             //koniec
             //System.out.println(Encryption.decrypt("7euJSnQHY79cFEFoJl95bA==",Encryption.createKey("kot")));
 
