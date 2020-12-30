@@ -8,12 +8,15 @@ function request() {
         url: "GetPersonalData",
         async: false
     });
-
 }
 
 function handleData(data) {
     document.getElementById("content_div").innerHTML = data;
     setTableLabels();
+    setImages();
+    $(".edit_data").click(function () {
+        editData();
+    });
 }
 
 $(document).ready(function () {

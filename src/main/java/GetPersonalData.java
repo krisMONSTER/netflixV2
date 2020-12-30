@@ -20,6 +20,7 @@ public class GetPersonalData extends HttpServlet {
     }
 
     private void execute(HttpServletRequest request, HttpServletResponse response) {
+        response.setCharacterEncoding("UTF-8");
         try {
             Connection conn = DatabaseConnection.initializeDatabase();
             String query = "SELECT p.firstName, p.lastName, p.country, p.address FROM profile AS p, account AS a WHERE a.login=(?) AND a.id=p.idAccount";
@@ -32,7 +33,7 @@ public class GetPersonalData extends HttpServlet {
                     rs = ps.getResultSet();
                     if (rs.next()) {
                         StringBuilder sb = new StringBuilder();
-                        sb.append("<table id=\"personal_data\" align=\"center\">");
+                        sb.append("<table id=\"personal_data\" align=\"center\" width=400px>");
                         sb.append(addRow(rs.getString(1), "first_name"));
                         sb.append(addRow(rs.getString(2), "last_name"));
                         sb.append(addRow(rs.getString(3), "country"));
@@ -53,7 +54,7 @@ public class GetPersonalData extends HttpServlet {
     private String addRow(String content, String label) {
         return "<tr>" +
                 "<td id='left'><span class='content'>"+content+"</span><br><span id='"+label+"'></span></td>" +
-                "<td id='right'></td>" +
+                "<td id='right'><img src=\"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D\" class='edit_data' alt='edit' height=\"50\" width=\"50\"></td>" +
                 "</tr>";
     }
 }

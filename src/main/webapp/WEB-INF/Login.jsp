@@ -24,12 +24,11 @@
     </a>
 </div>
 <div id="form_div">
-    <form id="form" name="form" action="${pageContext.request.contextPath}/LogIn" method="post"> <!-- <form name="form" action="javascript:void(0);" onsubmit="logIn()" method="post">-->
+    <form id="form" name="form" action="${pageContext.request.contextPath}/LogIn" method="post">
         <a id="login_label"></a><br>
         <label><input type="text" name="login" id="login"></label><br><br>
         <a id="pass_label"></a><br>
         <label><input type="password" name="password" id="password"></label><br><br><br>
-        <!-- <input type="submit" name="submit"><br> -->
         <div id="submit"><p id="submit_text"></p></div>
         <input type="submit" style="visibility: hidden; position: absolute;" />
     </form>

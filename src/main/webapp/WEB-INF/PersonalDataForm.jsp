@@ -1,24 +1,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="pl">
+<html>
 <head>
     <title>MovOn</title>
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/NavbarStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LanguagePanelStyle.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LoggedInStyle.css">
-    <link href="${pageContext.request.contextPath}/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/PersonalDataFormStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/PersonalDataFormScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/LoggedInScript.js"></script>
-    <script src="${pageContext.request.contextPath}/DataTables/js/jquery.dataTables.js"></script>
-    <script src="${pageContext.request.contextPath}/DataTables/js/dataTables.bootstrap.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/LoggedInLanguage.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/PersonalDataFormLanguage.js"></script>
     <script>
         function setLanguage(lang){
             setCookie("lang", lang, 1);
-            window.location.href = "${pageContext.request.contextPath}/Welcome";
+            window.location.href = "${pageContext.request.contextPath}/EditDataNav";
         }
     </script>
 </head>
@@ -33,26 +30,26 @@
             <li class="navbar__item">
                 <a href="${pageContext.request.contextPath}/LogOut" class="navbar__link" id="log_out"></a>
             </li>
-            <li class="navbar__item">
-                <a href="${pageContext.request.contextPath}/DashboardNav">
-                    <img id="dashboard_img" src="${pageContext.request.contextPath}/images/user_biały.png" alt="dashboard">
-                </a>
-            </li>
         </ul>
     </div>
 </nav>
-<div id="panel">
-    <div id="panel_content">
-        <div class="panel_element" id="search_div">
-            <span id="search"></span>
-        </div>
-        <div class="panel_element" id="recommended_div">
-            <span id="recommended"></span>
-        </div>
-    </div>
-</div>
-<div id="content_options_div"></div>
-<div id="content_div">
+<div id="form_div">
+    <form id="form" name="form" action="${pageContext.request.contextPath}/EditPersonalData" method="post">
+        <a id="first_name_label" class="form_label"></a><br>
+        <label><input type="text" name="first_name" id="first_name"></label><br><br>
+        <a id="last_name_label" class="form_label"></a><br>
+        <label><input type="text" name="last_name" id="last_name"></label><br><br>
+        <a id="country_label" class="form_label"></a><br>
+        <label><select name="country" id="country" form="form">
+            <option value="England">England</option>
+            <option value="Germany">Germany</option>
+            <option value="Poland">Poland</option>
+        </select></label><br><br>
+        <a id="address_label" class="form_label"></a><br>
+        <label><input type="text" name="address" id="address"></label><br><br>
+        <div id="submit" class="form_label"><p id="submit_text"></p></div>
+        <input type="submit" style="visibility: hidden; position: absolute;" />
+    </form>
 </div>
 <div id="language_div">
     <p onclick="setLanguage('english')" class="language_element">English</p>

@@ -1,9 +1,13 @@
 body{
     background: linear-gradient(to bottom, #000000, #131313);
 }
-a{
+.form_label{
     color: #fcb045;
     font-weight: bold;
+}
+#form_div{
+    padding-top: 50px;
+    text-align: center;
 }
 input:not([type='submit']){
     width: 250px;
@@ -53,12 +57,4 @@ input:not([type='submit']):focus{
 }
 #submit:hover:after{
     width: 100%;
-}
-#banner{
-    text-align: center;
-    padding: 50px;
-}
-#form_div{
-    text-align: center;
-    padding: 10px;
 }

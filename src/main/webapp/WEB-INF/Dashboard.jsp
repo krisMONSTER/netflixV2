@@ -4,16 +4,26 @@
     <title>MovOn</title>
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/NavbarStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LanguagePanelStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/DashboardStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/MenuTrigger.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/DashboardScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/DashboardLanguage.js"></script>
     <script>
         function setLanguage(lang){
             setCookie("lang", lang, 1);
             window.location.href = "${pageContext.request.contextPath}/DashboardNav";
+        }
+        function setImages(){
+            $(".edit_data").each(function (i, obj){
+                $(obj).attr("src","${pageContext.request.contextPath}/images/edit.png");
+            });
+        }
+        function editData(){
+            window.location.href = "${pageContext.request.contextPath}/EditDataNav";
         }
     </script>
 </head>
@@ -32,6 +42,9 @@
     </div>
 </nav>
 <div id="panel">
+    <div id="dashboard_div">
+        <img id="dashboard_img" src="${pageContext.request.contextPath}/images/user_biały.png" alt="dashboard">
+    </div>
     <div id="panel_content">
         <div class="panel_element" id="acquired_movies_div">
             <span id="acquired_movies"></span>

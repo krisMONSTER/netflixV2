@@ -1,0 +1,32 @@
+div#language_div {
+    border: thin solid lightgray;
+    top: 90px;
+    right: 20px;
+    height: 0;
+    width: 0;
+    background: #131313;
+    display: inline-block;
+    position: fixed;
+    padding-left: 15px;
+    padding-right: 15px;
+    visibility: hidden;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 999;
+}
+
+.language_element {
+    visibility: hidden;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.language_element:hover {
+    color: #fcb045;
+    transition: color 0.3s ease;
+}
+
+#language_hr {
+    cursor: default;
+}

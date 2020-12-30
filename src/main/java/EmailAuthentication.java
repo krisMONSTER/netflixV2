@@ -23,8 +23,6 @@ public class EmailAuthentication extends HttpServlet {
             Connection baza = DatabaseConnection.initializeDatabase();
             PreparedStatement ifauthenticated = baza.prepareStatement("SELECT login, email, verified FROM account WHERE email=(?)");
 
-            // chyba ze tu potem jak bedzie zamieniony email na zakodowany
-
             System.out.println(Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
             ifauthenticated.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
 

@@ -15,7 +15,7 @@ function startSearchThread() {
             setTimeout(search, 750);
         }
         else if(currentText === searchThreadStorage && changedTrigger){
-            executeRequest();
+            executeSearchRequest();
             changedTrigger = false;
             setTimeout(search, 250);
         }
@@ -26,15 +26,15 @@ function startSearchThread() {
     }
 }
 
-function executeRequest() {
-    request().then(handleData);
+function executeSearchRequest() {
+    searchRequest().then(handleData);
 }
 
-function executeRequestPref() {
-    requestPreferences().then(handleData);
+function executePrefRequest() {
+    prefRequest().then(handleData);
 }
 
-function request() {
+function searchRequest() {
     return $.ajax({
         type: "POST",
         url: "searchMovies",
@@ -44,9 +44,7 @@ function request() {
 
 }
 
-
-function requestPreferences() {
-    alert("smdsada");
+function prefRequest() {
     return $.ajax({
         type: "POST",
         url: "Preferences",
@@ -78,11 +76,7 @@ $(document).ready(function () {
     $("#recommended_div").click(function () {
         $("#content_options_div").html("");
         $("#content_div").html("");
-        executeRequestPref();
-
-
-
-
+        executePrefRequest();
     });
 
 });

@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/navigation.Welcome")
-public class Welcome extends HttpServlet {
+@WebServlet("/EditDataNav")
+public class EditDataNav extends HttpServlet {
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         execute(request, response);
     }
@@ -29,9 +30,8 @@ public class Welcome extends HttpServlet {
             dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/startPage.jsp");
         }
         else{
-            dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/LoggedIn.jsp");
+            dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/PersonalDataForm.jsp");
         }
-        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/startPage.jsp");
         dispatcher.forward(request,response);
     }
 }

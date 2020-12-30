@@ -23,6 +23,7 @@ public class searchMovies extends HttpServlet {
     }
 
     private void execute(HttpServletRequest request, HttpServletResponse response) {
+        response.setCharacterEncoding("UTF-8");
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
 

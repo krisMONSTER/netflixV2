@@ -24,7 +24,7 @@ public class Preferences extends HttpServlet {
             Connection database = DatabaseConnection.initializeDatabase();
             HttpSession session = request.getSession();
 
-            PreparedStatement getVideos = database.prepareStatement("SELECT DISTINCT video.title, video.destription FROM userpreferences, account, video " +
+            PreparedStatement getVideos = database.prepareStatement("SELECT DISTINCT video.title, video.description FROM userpreferences, account, video " +
                     "WHERE account.login=(?) AND account.id = userpreferences.idAccount AND userpreferences.idCAT = video.idCAT " +
                     "ORDER BY userpreferences.power DESC");
 
@@ -78,7 +78,6 @@ public class Preferences extends HttpServlet {
 
 
                 response.getWriter().write(reply.toString());
-                System.out.println((String)session.getAttribute("user"));
                 database.close();
                 rs.close();
             }
