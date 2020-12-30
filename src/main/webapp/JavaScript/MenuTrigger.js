@@ -23,17 +23,17 @@ $(document).ready(function (){
     $("#language").click(function () {
         if(isReady) {
             isReady = false;
-            const menu = $("#menu_div");
+            const menu = $("#language_div");
             if (opened === true) {
-                setVisibilityToElements(document.getElementsByClassName("menu_element"), "hidden");
+                setVisibilityToElements(document.getElementsByClassName("language_element"), "hidden");
                 menu.animate({height: '0', width: '0'}, "fast", function () {
-                    document.getElementById("menu_div").style.visibility = "hidden";
+                    document.getElementById("language_div").style.visibility = "hidden";
                     isReady = true;
                 });
             } else {
-                document.getElementById("menu_div").style.visibility = "visible";
+                document.getElementById("language_div").style.visibility = "visible";
                 menu.animateAuto("fast", function () {
-                    setVisibilityToElements(document.getElementsByClassName("menu_element"), "visible");
+                    setVisibilityToElements(document.getElementsByClassName("language_element"), "visible");
                     isReady = true;
                 });
             }

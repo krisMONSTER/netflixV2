@@ -4,19 +4,16 @@
     <title>MovOn</title>
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LoggedInStyle.css">
-    <link href="${pageContext.request.contextPath}/Bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/DashboardStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/MenuTrigger.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/LoggedInScript.js"></script>
-    <script src="${pageContext.request.contextPath}/DataTables/js/jquery.dataTables.js"></script>
-    <script src="${pageContext.request.contextPath}/DataTables/js/dataTables.bootstrap.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/LoggedInLanguage.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/DashboardScript.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/DashboardLanguage.js"></script>
     <script>
         function setLanguage(lang){
             setCookie("lang", lang, 1);
-            window.location.href = "${pageContext.request.contextPath}/Welcome";
+            window.location.href = "${pageContext.request.contextPath}/DashboardNav";
         }
     </script>
 </head>
@@ -29,11 +26,6 @@
                 <span class="navbar__link" id="language"></span>
             </li>
             <li class="navbar__item">
-                <a href="${pageContext.request.contextPath}/DashboardNav">
-                    <img id="dashboard" src="${pageContext.request.contextPath}/images/user_biały.png" alt="dashboard">
-                </a>
-            </li>
-            <li class="navbar__item">
                 <a href="${pageContext.request.contextPath}/LogOut" class="navbar__link" id="log_out"></a>
             </li>
         </ul>
@@ -41,21 +33,25 @@
 </nav>
 <div id="panel">
     <div id="panel_content">
-        <div class="panel_element" id="search_div">
-            <span id="search"></span>
+        <div class="panel_element" id="acquired_movies_div">
+            <span id="acquired_movies"></span>
         </div>
-        <div class="panel_element" id="recommended_div">
-            <span id="recommended"></span>
+        <div class="panel_element" id="archive_div">
+            <span id="archive"></span>
+        </div>
+        <div class="panel_element" id="edit_div">
+            <span id="edit"></span>
+        </div>
+        <div class="panel_element" id="wallet_div">
+            <span id="wallet"></span>
         </div>
     </div>
 </div>
-<div id="content_options_div"></div>
-<div id="content_div">
-</div>
+<div id="content_div"></div>
 <div id="language_div">
-    <p onclick="setLanguage('english')" class="menu_element">English</p>
-    <hr class="menu_element" id="menu_hr">
-    <p onclick="setLanguage('polish')" class="menu_element">Polski</p>
+    <p onclick="setLanguage('english')" class="language_element">English</p>
+    <hr class="language_element" id="language_hr">
+    <p onclick="setLanguage('polish')" class="language_element">Polski</p>
 </div>
 </body>
 </html>

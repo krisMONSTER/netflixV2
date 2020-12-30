@@ -15,9 +15,6 @@
         <url-pattern>/Welcome</url-pattern>
     </servlet-mapping>
 
-
-
-
     <servlet>
         <servlet-name>LoginNav</servlet-name>
         <servlet-class>navigation.LoginNav</servlet-class>
@@ -26,6 +23,7 @@
         <servlet-name>LoginNav</servlet-name>
         <url-pattern>/LoginNav</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>LogIn</servlet-name>
         <servlet-class>LogIn</servlet-class>
@@ -34,6 +32,7 @@
         <servlet-name>LogIn</servlet-name>
         <url-pattern>/LogIn</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>LogOut</servlet-name>
         <servlet-class>LogOut</servlet-class>
@@ -42,12 +41,13 @@
         <servlet-name>LogOut</servlet-name>
         <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
+
     <servlet>
-        <servlet-name>Preferences</servlet-name>
-         <servlet-class>Preferences</servlet-class>
+        <servlet-name>DashboardNav</servlet-name>
+        <servlet-class>navigation.DashboardNav</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Preferences</servlet-name>
-        <url-pattern>/Preferences</url-pattern>
+        <servlet-name>DashboardNav</servlet-name>
+        <url-pattern>/DashboardNav</url-pattern>
     </servlet-mapping>
 </web-app>

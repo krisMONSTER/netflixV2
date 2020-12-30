@@ -59,7 +59,7 @@ function handleData(data) {
     document.getElementById("content_div").innerHTML = data;
 
     $("#movies").dataTable({
-        "iDisplayLength": 10,
+        "iDisplayLength": 20,
         "aLengthMenu": [[10, 25, 50, 100,  -1], [10, 25, 50, 100, "All"]]
     });
 

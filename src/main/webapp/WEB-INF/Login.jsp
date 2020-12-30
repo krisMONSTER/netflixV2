@@ -31,6 +31,7 @@
         <label><input type="password" name="password" id="password"></label><br><br><br>
         <!-- <input type="submit" name="submit"><br> -->
         <div id="submit"><p id="submit_text"></p></div>
+        <input type="submit" style="visibility: hidden; position: absolute;" />
     </form>
 </div>
 </body>
