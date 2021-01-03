@@ -50,4 +50,22 @@
         <servlet-name>DashboardNav</servlet-name>
         <url-pattern>/DashboardNav</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditDataNav</servlet-name>
+        <servlet-class>navigation.EditDataNav</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditDataNav</servlet-name>
+        <url-pattern>/EditDataNav</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditPersonalData</servlet-name>
+        <servlet-class>EditPersonalData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditPersonalData</servlet-name>
+        <url-pattern>/EditPersonalData</url-pattern>
+    </servlet-mapping>
 </web-app>

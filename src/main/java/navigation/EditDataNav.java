@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet("/EditDataNav")
+@WebServlet("/navigation.EditDataNav")
 public class EditDataNav extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +30,13 @@ public class EditDataNav extends HttpServlet {
             dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/startPage.jsp");
         }
         else{
-            dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/PersonalDataForm.jsp");
+            String parameter = request.getParameter("editType");
+            if(parameter != null){
+                dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/PersonalDataForm.jsp?input=" + request.getParameter("input"));
+            }
+            else{
+                dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/PersonalDataForm.jsp");
+            }
         }
         dispatcher.forward(request,response);
     }

@@ -15,7 +15,8 @@ function handleData(data) {
     setTableLabels();
     setImages();
     $(".edit_data").click(function () {
-        editData();
+        let label = $(this).attr('id');
+        editData(label);
     });
 }
 

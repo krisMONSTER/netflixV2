@@ -16,28 +16,74 @@ public class EditPersonalData extends HttpServlet {
     }
 
     private void execute(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
+
+        String input = request.getParameter("input");
+
         if (request.getCharacterEncoding() == null)
             request.setCharacterEncoding("UTF-8");
+
         try {
             Connection conn = DatabaseConnection.initializeDatabase();
 
-            String query = "UPDATE profile " +
-                    "SET firstName=(?), lastName=(?), country=(?), address=(?) " +
-                    "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
-            PreparedStatement ps = conn.prepareStatement(query);
+            String query;
+            PreparedStatement ps = null;
+            if(input == null){
+                query = "UPDATE profile " +
+                        "SET firstName=(?), lastName=(?), country=(?), address=(?) " +
+                        "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
+                ps = conn.prepareStatement(query);
 
-            ps.setString(1, request.getParameter("first_name"));
-            ps.setString(2, request.getParameter("last_name"));
-            ps.setString(3, request.getParameter("country"));
-            ps.setString(4, request.getParameter("address"));
-            ps.setString(5, (String) request.getSession().getAttribute("user"));
+                ps.setString(1, request.getParameter("first_name"));
+                ps.setString(2, request.getParameter("last_name"));
+                ps.setString(3, request.getParameter("country"));
+                ps.setString(4, request.getParameter("address"));
+                ps.setString(5, (String) request.getSession().getAttribute("user"));
+            }
+            else if(input.equals("first_name_btn")){
+                query = "UPDATE profile " +
+                        "SET firstName=(?) " +
+                        "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
+                ps = conn.prepareStatement(query);
 
-            ps.executeUpdate();
-            ps.close();
+                ps.setString(1, request.getParameter("first_name"));
+                ps.setString(2, (String) request.getSession().getAttribute("user"));
+            }
+            else if(input.equals("last_name_btn")){
+                query = "UPDATE profile " +
+                        "SET lastName=(?) " +
+                        "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
+                ps = conn.prepareStatement(query);
+
+                ps.setString(1, request.getParameter("last_name"));
+                ps.setString(2, (String) request.getSession().getAttribute("user"));
+            }
+            else if(input.equals("country_btn")){
+                query = "UPDATE profile " +
+                        "SET country=(?) " +
+                        "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
+                ps = conn.prepareStatement(query);
+
+                ps.setString(1, request.getParameter("country"));
+                ps.setString(2, (String) request.getSession().getAttribute("user"));
+            }
+            else if(input.equals("address_btn")){
+                query = "UPDATE profile " +
+                        "SET address=(?) " +
+                        "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
+                ps = conn.prepareStatement(query);
+
+                ps.setString(1, request.getParameter("address"));
+                ps.setString(2, (String) request.getSession().getAttribute("user"));
+            }
+            if(ps != null) {
+                ps.executeUpdate();
+                ps.close();
+            }
             conn.close();
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Welcome");
             dispatcher.forward(request,response);
+
         } catch (SQLException | ClassNotFoundException | IOException | ServletException throwables) {
             throwables.printStackTrace();
         }

@@ -18,6 +18,9 @@
             window.location.href = "${pageContext.request.contextPath}/EditDataNav";
         }
     </script>
+    <%
+        String input = request.getParameter("input");
+    %>
 </head>
 <body>
 <nav class="navbar">
@@ -34,19 +37,27 @@
     </div>
 </nav>
 <div id="form_div">
-    <form id="form" name="form" action="${pageContext.request.contextPath}/EditPersonalData" method="post">
+    <form id="form" name="form" action="${pageContext.request.contextPath}/EditPersonalData?input=<%=input%>" method="post">
+        <% if(input == null || input.equals("first_name_btn")){ %>
         <a id="first_name_label" class="form_label"></a><br>
         <label><input type="text" name="first_name" id="first_name"></label><br><br>
+        <% } %>
+        <% if(input == null || input.equals("last_name_btn")){ %>
         <a id="last_name_label" class="form_label"></a><br>
         <label><input type="text" name="last_name" id="last_name"></label><br><br>
+        <% } %>
+        <% if(input == null || input.equals("country_btn")){ %>
         <a id="country_label" class="form_label"></a><br>
         <label><select name="country" id="country" form="form">
             <option value="England">England</option>
             <option value="Germany">Germany</option>
             <option value="Poland">Poland</option>
         </select></label><br><br>
+        <% } %>
+        <% if(input == null || input.equals("address_btn")){ %>
         <a id="address_label" class="form_label"></a><br>
         <label><input type="text" name="address" id="address"></label><br><br>
+        <% } %>
         <div id="submit" class="form_label"><p id="submit_text"></p></div>
         <input type="submit" style="visibility: hidden; position: absolute;" />
     </form>

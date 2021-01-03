@@ -22,8 +22,8 @@
                 $(obj).attr("src","${pageContext.request.contextPath}/images/edit.png");
             });
         }
-        function editData(){
-            window.location.href = "${pageContext.request.contextPath}/EditDataNav";
+        function editData(input){
+            window.location.href = "${pageContext.request.contextPath}/EditDataNav?input="+input;
         }
     </script>
 </head>
