@@ -100,14 +100,22 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Servlet</servlet-name>
-        <servlet-class>Servlet</servlet-class>
+        <servlet-name>MovieDetailsNav</servlet-name>
+        <servlet-class>navigation.MovieDetailsNav</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/Servlet</url-pattern>
+        <servlet-name>MovieDetailsNav</servlet-name>
+        <url-pattern>/MovieDetailsNav</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>GetMovieDescription</servlet-name>
+        <servlet-class>GetMovieDescription</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMovieDescription</servlet-name>
+        <url-pattern>/GetMovieDescription</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>Preferences</servlet-name>

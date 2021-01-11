@@ -62,6 +62,10 @@ function handleData(data) {
         "aLengthMenu": [[10, 25, 50, 100,  -1], [10, 25, 50, 100, "All"]]
     });
 
+    $(".title").click(function () {
+        alert($(this).text());
+        movieDetails($(this).text());
+    });
 }
 
 $(document).ready(function () {
@@ -79,5 +83,6 @@ $(document).ready(function () {
         $("#content_div").html("");
         executePrefRequest();
     });
+
 
 });

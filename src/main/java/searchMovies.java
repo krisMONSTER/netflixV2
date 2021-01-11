@@ -66,7 +66,7 @@ public class searchMovies extends HttpServlet {
                 if (!request.getParameter("search").equals("")) {
                     for (String[] row : data) {
                         reply.append("<tr>");
-                        reply.append("<td><span>" + row[0] + "</span></td>");
+                        reply.append("<td><span class='title'>" + row[0] + "</span></td>");
                         reply.append("<td><span>" + row[1] + "</span></td>");
                         reply.append("</tr>");
                     }
