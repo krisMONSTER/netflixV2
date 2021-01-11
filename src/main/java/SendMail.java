@@ -39,8 +39,8 @@ public class SendMail {
      	      /*  Create an instance of MimeMessage,
      	          it accept MIME types and headers
      	      */
-            String link = "http://localhost:8080/javaServ_war/authenticate?code=" + Encryption.encrypt(email_to, Encryption.createKey("hasloemail"));
-            System.out.println(Encryption.encrypt(email_to, Encryption.createKey("hasloemail")));
+            String link = "http://localhost:8080/javaServ_war/authenticate?code=" + Encryption.encrypt(email_to, Encryption.createKey("pe"));
+            System.out.println(Encryption.encrypt(email_to, Encryption.createKey("pe")));
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email_from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email_to));

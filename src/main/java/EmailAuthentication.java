@@ -22,10 +22,10 @@ public class EmailAuthentication extends HttpServlet {
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
             PreparedStatement ifauthenticated = baza.prepareStatement("SELECT login, email, verified FROM account WHERE email=(?)");
-
-            System.out.println(Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
-            ifauthenticated.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
-
+            System.out.println("CODE:"+request.getParameter("code"));
+            //System.out.println(Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
+            ifauthenticated.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("pe")));
+            System.out.println("DECRYPTED:" + Encryption.decrypt(request.getParameter("code"),Encryption.createKey("pe")));
             ResultSet ifauthent_rs;
 
 
@@ -33,7 +33,7 @@ public class EmailAuthentication extends HttpServlet {
                 ifauthent_rs = ifauthenticated.getResultSet();
 
                 //if there is an email connected to this link
-                if (ifauthent_rs.next() == true) {
+                if (ifauthent_rs.next()) {
                     if (ifauthent_rs.getInt("verified") == 1) {
 
                         out.write("<p id='errMsg' style='color: red; font-size: larger;'>This Email has already been verified." + "</p>");
@@ -42,7 +42,7 @@ public class EmailAuthentication extends HttpServlet {
 
                     } else {
                         PreparedStatement updateverification = baza.prepareStatement("UPDATE account SET verified = 1 WHERE email=(?)");
-                        updateverification.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
+                        updateverification.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("pe")));
                         updateverification.execute();
                         out.write("<p id='errMsg' style='color: red; font-size: larger;'>You have successfully verified your email." + "</p>");
                         dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");

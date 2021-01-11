@@ -62,10 +62,10 @@ public class Encryption {
         Key key = keyGenerator(newKey);
         try {
             cipher = Cipher.getInstance("AES");
-            System.out.println(string);
-            System.out.println(string.length());
+            //System.out.println(string);
+            //System.out.println(string.length());
 
-            if (key == null | cipher == null | string.length() % 16 != 0) {
+            if (key == null || cipher == null ) {
                 return null;
             } else {
                 cipher.init(Cipher.DECRYPT_MODE, key);
