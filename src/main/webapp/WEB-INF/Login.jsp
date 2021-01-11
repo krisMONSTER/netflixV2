@@ -12,10 +12,13 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LoginStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/SubmitStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LoginScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LoginLanguage.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>
+
 </head>
 <body>
 <div id="banner">
@@ -29,7 +32,7 @@
         <label><input type="text" name="login" id="login"></label><br><br>
         <a id="pass_label"></a><br>
         <label><input type="password" name="password" id="password"></label><br><br><br>
-        <div id="submit"><p id="submit_text"></p></div>
+        <div class="submit"><p id="submit_text"></p></div>
         <input type="submit" style="visibility: hidden; position: absolute;" />
     </form>
 </div>

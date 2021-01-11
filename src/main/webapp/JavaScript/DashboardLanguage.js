@@ -33,12 +33,14 @@ function setTableLabels(){
         get("last_name").innerHTML = "Nazwisko";
         get("country").innerHTML = "Kraj";
         get("address").innerHTML = "Adres";
+        get("submit_text").innerHTML = "Edytuj";
     }
     else if (language === "english"){
         get("first_name").innerHTML = "Name";
         get("last_name").innerHTML = "Surname";
         get("country").innerHTML = "Country";
         get("address").innerHTML = "Address";
+        get("submit_text").innerHTML = "Edit";
     }
 }
 

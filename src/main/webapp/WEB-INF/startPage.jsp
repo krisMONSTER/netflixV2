@@ -13,6 +13,7 @@
     <title>MovOn</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/SubmitStyle.css">
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/newStyles.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LanguagePanelStyle.css">
@@ -21,6 +22,7 @@
     <script src="${pageContext.request.contextPath}/JavaScript/StartPageLanguage.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>
     <script>
         function setLanguage(lang){
             setCookie("lang", lang, 1);
@@ -131,13 +133,17 @@
             <h1 id="join__us"></h1>
             <h2 id="join__us__more"></h2>
             <a id="login_label"></a><br>
-            <label><input type="text" name="login" id="login_text"></label><br><br><br>
-            <a id="pass_label"></a><br>
-            <label><input type="password" name="password" id="password"></label><br><br><br>
-            <a id="email_label"></a><br>
-            <label><input type="email" name="email" id="email"></label><br><br><br>
-            <button class="main__btn"><a href="#home" id="submit"></a></button>
-<%--            <div id="submit"><p id="submit_text"></p></div>--%>
+            <form id="form" name="form" action="${pageContext.request.contextPath}/Register" method="post">
+                <label><input type="text" name="login" id="login_text"></label><br><br><br>
+                <a id="pass_label"></a><br>
+                <label><input type="password" name="password" id="password"></label><br><br><br>
+                <a id="email_label"></a><br>
+                <label><input type="email" name="email" id="email"></label><br><br><br>
+                <div class="submit"><p id="submit"></p></div>
+                <input type="submit" style="visibility: hidden; position: absolute;" />
+                <!-- <button class="main__btn"><a href="#home" id="submit"></a></button> -->
+    <%--            <div id="submit"><p id="submit_text"></p></div>--%>
+            </form>
         </div>
     </div>
 </div>

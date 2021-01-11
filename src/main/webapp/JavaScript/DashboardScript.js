@@ -18,6 +18,9 @@ function handleData(data) {
         let label = $(this).attr('id');
         editData(label);
     });
+    $("#submit_div").click(function () {
+        editData(null);
+    })
 }
 
 $(document).ready(function () {

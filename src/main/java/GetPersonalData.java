@@ -38,7 +38,8 @@ public class GetPersonalData extends HttpServlet {
                         sb.append(addRow(rs.getString(2), "last_name"));
                         sb.append(addRow(rs.getString(3), "country"));
                         sb.append(addRow(rs.getString(4), "address"));
-                        sb.append("</table>");
+                        sb.append("</table><br>");
+                        sb.append("<div id='wrap'><div id=\"submit_div\" class=\"submit\"><p id=\"submit_text\"></p></div></div>");
                         response.getWriter().write(sb.toString());
                         conn.close();
                         rs.close();

@@ -25,6 +25,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>LogIn</servlet-name>
         <servlet-class>LogIn</servlet-class>
     </servlet>
@@ -67,5 +76,14 @@
     <servlet-mapping>
         <servlet-name>EditPersonalData</servlet-name>
         <url-pattern>/EditPersonalData</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>Servlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet</servlet-name>
+        <url-pattern>/Servlet</url-pattern>
     </servlet-mapping>
 </web-app>

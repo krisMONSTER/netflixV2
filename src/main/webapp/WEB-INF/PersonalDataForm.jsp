@@ -5,11 +5,12 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/NavbarStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/SubmitStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LanguagePanelStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/PersonalDataFormStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/PersonalDataFormScript.js"></script>
+    <script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/PersonalDataFormLanguage.js"></script>
     <script>
@@ -58,7 +59,7 @@
         <a id="address_label" class="form_label"></a><br>
         <label><input type="text" name="address" id="address"></label><br><br>
         <% } %>
-        <div id="submit" class="form_label"><p id="submit_text"></p></div>
+        <div class="submit"><p id="submit_text"></p></div>
         <input type="submit" style="visibility: hidden; position: absolute;" />
     </form>
 </div>

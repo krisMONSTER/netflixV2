@@ -66,6 +66,10 @@ td#left{
     text-align: left;
 }
 
+#wrap{
+    text-align: center;
+}
+
 .content{
     font-weight: bold;
 }

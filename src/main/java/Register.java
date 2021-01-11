@@ -51,11 +51,11 @@ public class Register extends HttpServlet {
                     //szyfrowanie hasła
 
                     System.out.println("Login: " + request.getParameter("login"));
-                    System.out.println("Haslo: " + request.getParameter("haslo"));
+                    System.out.println("Haslo: " + request.getParameter("password"));
 
                     String key = Encryption.createKey(request.getParameter("login"));
                     System.out.println("Klucz: " + key);
-                    String encryptedPassword = Encryption.encrypt(request.getParameter("haslo"), key);
+                    String encryptedPassword = Encryption.encrypt(request.getParameter("password"), key);
                     System.out.println("Zaszyfrowane: " + encryptedPassword);
                     st.setString(2, encryptedPassword);
                     //koniec

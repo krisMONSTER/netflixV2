@@ -5,6 +5,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/NavbarStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/SubmitStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LanguagePanelStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/DashboardStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
@@ -23,7 +24,12 @@
             });
         }
         function editData(input){
-            window.location.href = "${pageContext.request.contextPath}/EditDataNav?input="+input;
+            if(input == null){
+                window.location.href = "${pageContext.request.contextPath}/EditDataNav";
+            }
+            else{
+                window.location.href = "${pageContext.request.contextPath}/EditDataNav?input="+input;
+            }
         }
     </script>
 </head>
