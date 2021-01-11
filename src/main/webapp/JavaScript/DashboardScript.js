@@ -1,8 +1,12 @@
-function executeRequest() {
-    request().then(handleData);
+function executePersonalDataRequest() {
+    personalDataRequest().then(handlePersonalData);
 }
 
-function request() {
+function executeWalletRequest() {
+    walletRequest().then(handleWalletData);
+}
+
+function personalDataRequest() {
     return $.ajax({
         type: "POST",
         url: "GetPersonalData",
@@ -10,7 +14,17 @@ function request() {
     });
 }
 
-function handleData(data) {
+function walletRequest() {
+    return $.ajax({
+        type: "POST",
+        url: "GetWallet",
+        async: false
+    });
+
+
+}
+
+function handlePersonalData(data) {
     document.getElementById("content_div").innerHTML = data;
     setTableLabels();
     setImages();
@@ -23,8 +37,16 @@ function handleData(data) {
     })
 }
 
+function handleWalletData(data) {
+    document.getElementById("content_div").innerHTML = data;
+
+}
+
 $(document).ready(function () {
     $("#edit_div").click(function () {
-        executeRequest();
+        executePersonalDataRequest();
+    });
+    $("#wallet_div").click(function () {
+        executeWalletRequest();
     });
 });
