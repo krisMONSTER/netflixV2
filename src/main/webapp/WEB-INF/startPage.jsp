@@ -22,7 +22,8 @@
     <script src="${pageContext.request.contextPath}/JavaScript/StartPageLanguage.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>
+    <!--<script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>-->
+    <script src="${pageContext.request.contextPath}/JavaScript/RegisterMainPageScript.js"></script>
     <script>
         function setLanguage(lang){
             setCookie("lang", lang, 1);
@@ -133,20 +134,20 @@
             <h1 id="join__us"></h1>
             <h2 id="join__us__more"></h2>
             <a id="login_label"></a><br>
-            <form id="form" name="form" action="${pageContext.request.contextPath}/Register" method="post">
+            <form id="register_form" name="register_form" action="${pageContext.request.contextPath}/Register" method="post">
                 <label><input type="text" name="login" id="login_text"></label><br><br><br>
                 <a id="pass_label"></a><br>
                 <label><input type="password" name="password" id="password"></label><br><br><br>
                 <a id="email_label"></a><br>
                 <label><input type="email" name="email" id="email"></label><br><br><br>
-                <div class="submit"><p id="submit"></p></div>
-                <input type="submit" style="visibility: hidden; position: absolute;" />
+                <div id="submit_div" class="submit"><p id="submit"></p></div>
                 <!-- <button class="main__btn"><a href="#home" id="submit"></a></button> -->
     <%--            <div id="submit"><p id="submit_text"></p></div>--%>
             </form>
         </div>
     </div>
 </div>
+
 
 
 <!-- Footer Section -->
@@ -208,10 +209,15 @@
         </div>
     </section>
 </div>
+
+<div id="snackbar"></div>
+
 <div id="language_div">
     <p onclick="setLanguage('english')" class="language_element">English</p>
     <hr class="language_element" id="language_hr">
     <p onclick="setLanguage('polish')" class="language_element">Polski</p>
 </div>
+
 </body>
+
 </html>

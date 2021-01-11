@@ -42,6 +42,17 @@
         <url-pattern>/LogIn</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>IsRegisterAvailable</servlet-name>
+        <servlet-class>IsRegisterAvailable</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IsRegisterAvailable</servlet-name>
+        <url-pattern>/IsRegisterAvailable</url-pattern>
+    </servlet-mapping>
+
+
     <servlet>
         <servlet-name>LogOut</servlet-name>
         <servlet-class>LogOut</servlet-class>
@@ -85,5 +96,16 @@
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
         <url-pattern>/Servlet</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>Preferences</servlet-name>
+        <servlet-class>Preferences</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Preferences</servlet-name>
+        <url-pattern>/Preferences</url-pattern>
     </servlet-mapping>
 </web-app>
