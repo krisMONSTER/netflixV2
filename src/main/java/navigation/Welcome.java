@@ -31,7 +31,6 @@ public class Welcome extends HttpServlet {
         else{
             dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/LoggedIn.jsp");
         }
-        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/startPage.jsp");
         dispatcher.forward(request,response);
     }
 }

@@ -6,8 +6,16 @@ function executeWalletRequest() {
     walletRequest().then(handleWalletData);
 }
 
+function executeAcquiredMovies(){
+    acquiredMoviesRequest().then(handleAcquiredMovies);
+}
+
 function executeTopUpWalletRequest() {
     topUpWalletRequest().then(handleTopUpWalletData);
+}
+
+function executeArchiveRequest() {
+    archiveRequest().then(handleArchive);
 }
 
 function personalDataRequest() {
@@ -34,6 +42,22 @@ function topUpWalletRequest() {
     });
 }
 
+function acquiredMoviesRequest(){
+    return $.ajax({
+        type: "POST",
+        url: "GetAcquiredMovies",
+        async: false
+    });
+}
+
+function archiveRequest(){
+    return $.ajax({
+        type: "POST",
+        url: "GetArchive",
+        async: false
+    });
+}
+
 
 function handlePersonalData(data) {
     document.getElementById("content_div").innerHTML = data;
@@ -52,9 +76,16 @@ function handleWalletData(data) {
     document.getElementById("content_div").innerHTML = data;
     setChargeAccountLabel();
     $("#submit_div").click(function () {
-       //alert("KLIKLES");
         executeTopUpWalletRequest();
     });
+}
+
+function handleAcquiredMovies(data){
+    document.getElementById("content_div").innerHTML = data;
+}
+
+function handleArchive(data){
+    document.getElementById("content_div").innerHTML = data;
 }
 
 function handleTopUpWalletData(data) {
@@ -72,5 +103,10 @@ $(document).ready(function () {
     $("#wallet_div").click(function () {
         executeWalletRequest();
     });
-
+    $("#acquired_movies_div").click(function () {
+        executeAcquiredMovies();
+    });
+    $("#archive_div").click(function () {
+        executeArchiveRequest();
+    });
 });

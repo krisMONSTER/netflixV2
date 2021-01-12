@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/MovieDetailsStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/SubmitStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LanguagePanelStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/Snackbar.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
@@ -52,12 +53,8 @@
             getMovieDescription();
 
             $("#rent").click(function () {
-                //alert(document.getElementById("days").value);
                 checkPayment(document.getElementById("days").value);
             });
-            /*$("#submit").click(function () {
-                $('#form').submit();
-            });*/
         });
 
         function setLanguage(lang){
@@ -97,9 +94,9 @@
 
         function handleCheckPayment(data){
             if(data === "ok"){
-                window.location.href = "${pageContext.request.contextPath}/Payment";
+                window.location.href = "${pageContext.request.contextPath}/DashboardNav";
             }
-            else{
+            else {
                 let snackbar = document.getElementById("snackbar");
                 snackbar.innerHTML = data
                 snackbar.className = "show";

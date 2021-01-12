@@ -145,11 +145,20 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>Payment</servlet-name>
-        <servlet-class>Payment</servlet-class>
+        <servlet-name>GetAcquiredMovies</servlet-name>
+        <servlet-class>GetAcquiredMovies</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Payment</servlet-name>
-        <url-pattern>/Payment</url-pattern>
+        <servlet-name>GetAcquiredMovies</servlet-name>
+        <url-pattern>/GetAcquiredMovies</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetArchive</servlet-name>
+        <servlet-class>GetArchive</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetArchive</servlet-name>
+        <url-pattern>/GetArchive</url-pattern>
     </servlet-mapping>
 </web-app>
