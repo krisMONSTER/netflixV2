@@ -77,7 +77,6 @@ public class searchMovies extends HttpServlet {
                 );
 
 
-                response.setCharacterEncoding("UTF-8");
                 response.getWriter().write(reply.toString());
                 baza.close();
                 rs.close();

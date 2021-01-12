@@ -134,4 +134,22 @@
         <servlet-name>Preferences</servlet-name>
         <url-pattern>/Preferences</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>PaymentValidation</servlet-name>
+        <servlet-class>PaymentValidation</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PaymentValidation</servlet-name>
+        <url-pattern>/PaymentValidation</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Payment</servlet-name>
+        <servlet-class>Payment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Payment</servlet-name>
+        <url-pattern>/Payment</url-pattern>
+    </servlet-mapping>
 </web-app>

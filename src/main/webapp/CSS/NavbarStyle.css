@@ -8,6 +8,11 @@ img#logo_img {
     cursor: pointer;
 }
 
+#dashboard_img{
+    width: 80px;
+    cursor: pointer;
+}
+
 .navbar {
     background: #131313;
     height: 80px;

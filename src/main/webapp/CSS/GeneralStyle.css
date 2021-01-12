@@ -3,7 +3,7 @@ body{
     background: #0c0c0c;
 }
 
-span, p, a{
+span, p, a, h1{
     font-family: Arial, Helvetica, sans-serif;
     user-select: none;
     color: #fff;
