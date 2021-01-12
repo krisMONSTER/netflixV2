@@ -57,7 +57,6 @@ public class PaymentValidation extends HttpServlet {
                                         " (SELECT id FROM video WHERE title LIKE (?) LIMIT 1), (?), (?))";
 
                                 ps = conn.prepareStatement(query);
-
                                 ps.setString(1, user);
                                 ps.setString(2, title);
                                 Calendar c = Calendar.getInstance();
@@ -67,7 +66,17 @@ public class PaymentValidation extends HttpServlet {
                                 date = c.getTime();
                                 ps.setTimestamp(4, new Timestamp(date.getTime()));
                                 if(ps.executeUpdate() != 0){
-                                    response.getWriter().write("ok");
+                                    ps.close();
+                                    query = "UPDATE wallet SET amount = (?) WHERE idAccount = (SELECT id FROM account WHERE login = (?))";
+                                    ps = conn.prepareStatement(query);
+                                    ps.setInt(1, money - cost * Integer.parseInt(days));
+                                    ps.setString(2, user);
+                                    if(ps.executeUpdate() != 0){
+                                        response.getWriter().write("ok");
+                                    }
+                                    else{
+                                        response.getWriter().write("SQL error");
+                                    }
                                 }
                                 else {
                                     response.getWriter().write("SQL error");
