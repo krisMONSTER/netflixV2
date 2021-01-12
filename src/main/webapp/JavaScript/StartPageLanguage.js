@@ -21,7 +21,7 @@ $(document).ready(function(){
 
         // About Section
         set("main__content_h1", "Co robimy?");
-        set("main__content_h2", "Zapewniamy Ci dostęp do filmów");
+        set("main__content_h2", "Wypożyczamy Tobie filmy");
         set("main__content_h3", "Które poruszą Cię");
         set("main__content_h4", "Tak jak Ty nas :D");
 
