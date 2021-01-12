@@ -62,3 +62,8 @@ input:not([type='submit']):focus{
     text-align: center;
     padding: 10px;
 }
+.g-recaptcha > div {
+    text-align: center;
+    width: auto!important;
+    padding-bottom: 1rem!important;
+}

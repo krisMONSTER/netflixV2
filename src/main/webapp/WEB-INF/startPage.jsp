@@ -24,8 +24,13 @@
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
     <!--<script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>-->
     <script src="${pageContext.request.contextPath}/JavaScript/RegisterMainPageScript.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>function recaptchaCallback() {
+        $('.submit').removeAttr('style');
+    }
+    </script>
     <script>
-        function setLanguage(lang){
+        function setLanguage(lang) {
             setCookie("lang", lang, 1);
             window.location.href = "${pageContext.request.contextPath}/Welcome";
         }
@@ -35,7 +40,8 @@
 <!-- Navbar Section -->
 <nav class="navbar">
     <div class="navbar__container">
-        <a href="#hero"><img id="logo_img" src="${pageContext.request.contextPath}/images/logoBialeV2.png" alt="Logo firmy"></a>
+        <a href="#hero"><img id="logo_img" src="${pageContext.request.contextPath}/images/logoBialeV2.png"
+                             alt="Logo firmy"></a>
         <!-- <a href="#home" id="navbar__logo">MovOn</a> -->
         <div class="navbar__toggle" id="mobile-menu">
             <span class="bar"></span>
@@ -71,7 +77,8 @@
 <!-- Hero Section -->
 <div class="hero" id="home">
     <div class="hero__container">
-        <p class="hero__heading" id="hero__heading"><p class="hero__heading__continue" id="hero__heading_continue"></p></p>
+        <p class="hero__heading" id="hero__heading">
+        <p class="hero__heading__continue" id="hero__heading_continue"></p></p>
         <h1 class="hero__description" id="hero__description"></h1>
         <button class="main__btn"><a href="#" id="main__btn"></a></button>
     </div>
@@ -81,7 +88,9 @@
 <div class="main" id="about">
     <div class="main__container">
         <div class="main__img--container">
-            <div class="main__img--card"><img id="film_img" src="${pageContext.request.contextPath}/images/iconFilmBlack.png" alt="film_img"></div>
+            <div class="main__img--card"><img id="film_img"
+                                              src="${pageContext.request.contextPath}/images/iconFilmBlack.png"
+                                              alt="film_img"></div>
         </div>
         <div class="main__content">
             <h1 id="main__content_h1"></h1>
@@ -98,28 +107,29 @@
     <div class="services__wrapper">
         <!-- <div class="services__card"> -->
         <div class="film__img--card">
-            <img id="film_Przelecz_ocalonych" src="${pageContext.request.contextPath}/images/Przelecz ocalonych.jpg" alt = "Przelecz ocalonych">
+            <img id="film_Przelecz_ocalonych" src="${pageContext.request.contextPath}/images/Przelecz ocalonych.jpg"
+                 alt="Przelecz ocalonych">
             <h2 id="hacksaw__ridge"></h2>
             <p id="hacksaw__ridge__year"></p>
         </div>
         <!-- </div> -->
         <!-- <div class="services__card"> -->
         <div class="film__img--card">
-            <img id="film_Joker" src="${pageContext.request.contextPath}/images/Joker.jpg" alt = "Joker">
+            <img id="film_Joker" src="${pageContext.request.contextPath}/images/Joker.jpg" alt="Joker">
             <h2 id="joker"></h2>
             <p id="joker__year"></p>
         </div>
         <!-- </div> -->
         <!-- <div class="services__card"> -->
         <div class="film__img--card">
-            <img id="film_King" src="${pageContext.request.contextPath}/images/King.jpg" alt = "King">
+            <img id="film_King" src="${pageContext.request.contextPath}/images/King.jpg" alt="King">
             <h2 id="king"></h2>
             <p id="king__year"></p>
         </div>
         <!-- </div> -->
         <!-- <div class="services__card"> -->
         <div class="film__img--card">
-            <img id="film_Tenet" src="${pageContext.request.contextPath}/images/Tenet.jpg" alt = "Tenet">
+            <img id="film_Tenet" src="${pageContext.request.contextPath}/images/Tenet.jpg" alt="Tenet">
             <h2 id="tenet"></h2>
             <p id="tenet__year"></p>
         </div>
@@ -134,20 +144,22 @@
             <h1 id="join__us"></h1>
             <h2 id="join__us__more"></h2>
             <a id="login_label"></a><br>
-            <form id="register_form" name="register_form" action="${pageContext.request.contextPath}/Register" method="post">
+            <form id="register_form" name="register_form" action="${pageContext.request.contextPath}/Register"
+                  method="post">
                 <label><input type="text" name="login" id="login_text"></label><br><br><br>
                 <a id="pass_label"></a><br>
                 <label><input type="password" name="password" id="password"></label><br><br><br>
                 <a id="email_label"></a><br>
                 <label><input type="email" name="email" id="email"></label><br><br><br>
-                <div id="submit_div" class="submit"><p id="submit"></p></div>
+                <div class="g-recaptcha" data-callback="recaptchaCallback"
+                     data-sitekey="6LdtnSkaAAAAAJu4EggVb-Ty_OIJbrcLs-a9EwPH" data-theme="dark"></div>
+                <div id="submit_div" style="pointer-events:none" class="submit"><p id="submit"></p></div>
                 <!-- <button class="main__btn"><a href="#home" id="submit"></a></button> -->
-    <%--            <div id="submit"><p id="submit_text"></p></div>--%>
+                <%--            <div id="submit"><p id="submit_text"></p></div>--%>
             </form>
         </div>
     </div>
 </div>
-
 
 
 <!-- Footer Section -->
@@ -191,19 +203,19 @@
             <p id="rights" class="website__rights"></p>
             <div class="social__icons">
                 <a href="/" class="social__icon--link" target="_blank"
-                ><i class = "fab fa-instagram"></i
+                ><i class="fab fa-instagram"></i
                 ></a>
                 <a href="/" class="social__icon--link"
-                ><i class = "fab fa-facebook-f"></i
+                ><i class="fab fa-facebook-f"></i
                 ></a>
                 <a href="/" class="social__icon--link"
-                ><i class = "fab fa-youtube"></i
+                ><i class="fab fa-youtube"></i
                 ></a>
                 <a href="/" class="social__icon--link"
-                ><i class = "fab fa-linkedin"></i
+                ><i class="fab fa-linkedin"></i
                 ></a>
                 <a href="/" class="social__icon--link"
-                ><i class = "fab fa-twitter"></i
+                ><i class="fab fa-twitter"></i
                 ></a>
             </div>
         </div>

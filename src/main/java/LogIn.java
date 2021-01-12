@@ -32,7 +32,6 @@ public class LogIn extends HttpServlet {
             String encryptedPassword = Encryption.encrypt(request.getParameter("password"), key);
             ps.setString(2, encryptedPassword);
             //koniec
-            //System.out.println(Encryption.decrypt("7euJSnQHY79cFEFoJl95bA==",Encryption.createKey("kot")));
 
 
             if (ps.execute()) {

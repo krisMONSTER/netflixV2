@@ -18,12 +18,17 @@
     <script src="${pageContext.request.contextPath}/JavaScript/LoginScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LoginLanguage.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>function recaptchaCallback() {
+        $('.submit').removeAttr('style');
+    }
+    </script>
 </head>
 <body>
 <div id="banner">
     <a href="${pageContext.request.contextPath}/Welcome">
-        <img src="${pageContext.request.contextPath}/images/logoBialeV2.png" id="logo_img" style="width: 150px" alt="Logo firmy">
+        <img src="${pageContext.request.contextPath}/images/logoBialeV2.png" id="logo_img" style="width: 150px"
+             alt="Logo firmy">
     </a>
 </div>
 <div id="form_div">
@@ -32,9 +37,12 @@
         <label><input type="text" name="login" id="login"></label><br><br>
         <a id="pass_label"></a><br>
         <label><input type="password" name="password" id="password"></label><br><br><br>
-        <div class="submit"><p id="submit_text"></p></div>
-        <input type="submit" style="visibility: hidden; position: absolute;" />
+        <div class="g-recaptcha" data-callback="recaptchaCallback"
+             data-sitekey="6LdtnSkaAAAAAJu4EggVb-Ty_OIJbrcLs-a9EwPH" data-theme="dark"></div>
+        <div class="submit" style="pointer-events:none"><p id="submit_text"></p></div>
+        <input type="submit" style="visibility: hidden; position: absolute;"/>
     </form>
+
 </div>
 </body>
 </html>
