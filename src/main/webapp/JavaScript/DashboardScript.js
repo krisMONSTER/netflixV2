@@ -6,6 +6,10 @@ function executeWalletRequest() {
     walletRequest().then(handleWalletData);
 }
 
+function executeTopUpWalletRequest() {
+    topUpWalletRequest().then(handleTopUpWalletData);
+}
+
 function personalDataRequest() {
     return $.ajax({
         type: "POST",
@@ -20,9 +24,16 @@ function walletRequest() {
         url: "GetWallet",
         async: false
     });
-
-
 }
+
+function topUpWalletRequest() {
+    return $.ajax({
+        type: "POST",
+        url: "TopUpWallet",
+        async: false
+    });
+}
+
 
 function handlePersonalData(data) {
     document.getElementById("content_div").innerHTML = data;
@@ -39,7 +50,19 @@ function handlePersonalData(data) {
 
 function handleWalletData(data) {
     document.getElementById("content_div").innerHTML = data;
+    setChargeAccountLabel();
+    $("#submit_div").click(function () {
+       //alert("KLIKLES");
+        executeTopUpWalletRequest();
+    });
+}
 
+function handleTopUpWalletData(data) {
+    if (data === "success") {
+        executeWalletRequest();
+    } else {
+        alert("DUPA");
+    }
 }
 
 $(document).ready(function () {
@@ -49,4 +72,5 @@ $(document).ready(function () {
     $("#wallet_div").click(function () {
         executeWalletRequest();
     });
+
 });

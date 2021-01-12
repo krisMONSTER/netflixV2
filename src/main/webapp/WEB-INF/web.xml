@@ -62,6 +62,15 @@
         <url-pattern>/GetWallet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>TopUpWallet</servlet-name>
+        <servlet-class>TopUpWallet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TopUpWallet</servlet-name>
+        <url-pattern>/TopUpWallet</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>LogOut</servlet-name>

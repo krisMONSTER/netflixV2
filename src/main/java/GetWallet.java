@@ -31,8 +31,8 @@ public class GetWallet extends HttpServlet {
                     sb.append("<tr>" +
                             "<td id = 'left'><span class='content'>" + rs.getString("cashType") + " €</span></td>");
                     sb.append("<td id = 'right'><span class='content'>" + rs.getString("amount") + "</span></td>");
-                    sb.append("</tr></table>");
-
+                    sb.append("</tr></table><br>");
+                    sb.append("<div id='wrap'><div id=\"submit_div\" class=\"submit\"><p id=\"charge\"></p></div></div>");
                     response.getWriter().write(sb.toString());
                     conn.close();
                     rs.close();
