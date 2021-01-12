@@ -1,0 +1,37 @@
+.wrap{
+    text-align: center;
+}
+.content_div{
+    display: inline-block;
+}
+#title_div{
+    max-width: 300pt;
+    padding: 30pt 50pt 20pt;
+}
+#title_div h1{
+    color: #fcb045;
+}
+#description_div{
+    max-width: 600pt;
+    padding-left: 50pt;
+    padding-right: 50pt;
+}
+#controls_div{
+    padding-top: 20pt;
+}
+#days_div{
+    display: inline-block;
+    float: left;
+    padding: 10px;
+}
+input{
+    padding: 5px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+input:focus{
+    border: 2px solid #fcb045;
+}

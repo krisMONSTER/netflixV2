@@ -63,7 +63,6 @@ function handleData(data) {
     });
 
     $(".title").click(function () {
-        alert($(this).text());
         movieDetails($(this).text());
     });
 }

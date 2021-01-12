@@ -1,5 +1,5 @@
 function executeRequest() {
-    request().then(handleData);
+    requestDescription().then(handleData);
 }
 
 function handleData(data){
