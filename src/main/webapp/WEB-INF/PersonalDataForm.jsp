@@ -10,11 +10,18 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/PersonalDataFormStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/SubmitScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/PersonalDataFormLanguage.js"></script>
     <script>
-        function setLanguage(lang){
+        $(document).ready(function () {
+            $("#submit").click(function () {
+
+                $("#form").submit();
+            });
+
+        });
+
+        function setLanguage(lang) {
             setCookie("lang", lang, 1);
             window.location.href = "${pageContext.request.contextPath}/EditDataNav";
         }
@@ -26,7 +33,9 @@
 <body>
 <nav class="navbar">
     <div class="navbar__container">
-        <a href="${pageContext.request.contextPath}/Welcome"><img id="logo_img" src="${pageContext.request.contextPath}/images/logoBialeV2.png" alt="Logo firmy"></a>
+        <a href="${pageContext.request.contextPath}/Welcome"><img id="logo_img"
+                                                                  src="${pageContext.request.contextPath}/images/logoBialeV2.png"
+                                                                  alt="Logo firmy"></a>
         <ul class="navbar__menu">
             <li class="navbar__item">
                 <span class="navbar__link" id="language"></span>
@@ -38,16 +47,17 @@
     </div>
 </nav>
 <div id="form_div">
-    <form id="form" name="form" action="${pageContext.request.contextPath}/EditPersonalData?input=<%=input%>" method="post">
-        <% if(input == null || input.equals("first_name_btn")){ %>
+    <form id="form" name="form" action="${pageContext.request.contextPath}/EditPersonalData?input=<%=input%>"
+          method="post">
+        <% if (input == null || input.equals("first_name_btn")) { %>
         <a id="first_name_label" class="form_label"></a><br>
         <label><input type="text" name="first_name" id="first_name"></label><br><br>
         <% } %>
-        <% if(input == null || input.equals("last_name_btn")){ %>
+        <% if (input == null || input.equals("last_name_btn")) { %>
         <a id="last_name_label" class="form_label"></a><br>
         <label><input type="text" name="last_name" id="last_name"></label><br><br>
         <% } %>
-        <% if(input == null || input.equals("country_btn")){ %>
+        <% if (input == null || input.equals("country_btn")) { %>
         <a id="country_label" class="form_label"></a><br>
         <label><select name="country" id="country" form="form">
             <option value="England">England</option>
@@ -55,12 +65,12 @@
             <option value="Poland">Poland</option>
         </select></label><br><br>
         <% } %>
-        <% if(input == null || input.equals("address_btn")){ %>
+        <% if (input == null || input.equals("address_btn")) { %>
         <a id="address_label" class="form_label"></a><br>
         <label><input type="text" name="address" id="address"></label><br><br>
         <% } %>
-        <div class="submit"><p id="submit_text"></p></div>
-        <input type="submit" style="visibility: hidden; position: absolute;" />
+        <div class="submit" id="submit"><p id="submit_text"></p></div>
+        <input type="submit" style="visibility: hidden; position: absolute;"/>
     </form>
 </div>
 <div id="language_div">

@@ -17,17 +17,19 @@ public class EmailAuthentication extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        out.write("<html><body><div id='serlvetResponse' style='text-align: center;'>");
         RequestDispatcher dispatcher;
         try {
+            request.setCharacterEncoding("UTF-8");
             Connection baza = DatabaseConnection.initializeDatabase();
             PreparedStatement ifauthenticated = baza.prepareStatement("SELECT login, email, verified FROM account WHERE email=(?)");
-            System.out.println("CODE:"+request.getParameter("code"));
-            //System.out.println(Encryption.decrypt(request.getParameter("code"), Encryption.createKey("hasloemail")));
-            ifauthenticated.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("pe")));
-            System.out.println("DECRYPTED:" + Encryption.decrypt(request.getParameter("code"),Encryption.createKey("pe")));
-            ResultSet ifauthent_rs;
 
+            String fixedCode = request.getParameter("code").replace(' ','+');
+            System.out.println("CODE:" + fixedCode);
+
+            ifauthenticated.setString(1, Encryption.decrypt(fixedCode, Encryption.createKey("pe")));
+            System.out.println("DECRYPTED:" + Encryption.decrypt(fixedCode, Encryption.createKey("pe")));
+            ResultSet ifauthent_rs;
+            String toDisplay = "";
 
             if (ifauthenticated.execute()) {
                 ifauthent_rs = ifauthenticated.getResultSet();
@@ -35,32 +37,38 @@ public class EmailAuthentication extends HttpServlet {
                 //if there is an email connected to this link
                 if (ifauthent_rs.next()) {
                     if (ifauthent_rs.getInt("verified") == 1) {
-
-                        out.write("<p id='errMsg' style='color: red; font-size: larger;'>This Email has already been verified." + "</p>");
-                        dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
-                        dispatcher.include(request, response);
+                        toDisplay = "This Email has already been verified.";
 
                     } else {
                         PreparedStatement updateverification = baza.prepareStatement("UPDATE account SET verified = 1 WHERE email=(?)");
-                        updateverification.setString(1, Encryption.decrypt(request.getParameter("code"), Encryption.createKey("pe")));
+                        updateverification.setString(1, Encryption.decrypt(fixedCode, Encryption.createKey("pe")));
                         updateverification.execute();
-                        out.write("<p id='errMsg' style='color: red; font-size: larger;'>You have successfully verified your email." + "</p>");
-                        dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
-                        dispatcher.include(request, response);
+                        toDisplay = "You have successfully verified your email.";
                         updateverification.close();
-
 
                     }
                 }
+
                 //no email connected to this link
                 else {
-                    out.write("<p id='errMsg' style='color: red; font-size: larger;'>Wrong activation link." + "</p>");
-                    dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
-                    dispatcher.include(request, response);
-
+                    toDisplay = "Wrong activation link.";
                 }
+
+                out.print("<script type = 'text/javascript' language='JavaScript'> " +
+                        "document.onreadystatechange = () =>{ if(document.readyState==='complete'){" +
+                        "let snackbar = document.getElementById(\"snackbar\");\n" +
+                        "        snackbar.innerHTML = \"" + toDisplay + "\";\n" +
+                        "        snackbar.className = \"show\";\n" +
+                        "        setTimeout(function () {\n" +
+                        "            snackbar.className = snackbar.className.replace(\"show\", \"\");\n" +
+                        "        }, 3000);" +
+                        "}};" +
+                        "</script>");
+
+                dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
+                dispatcher.include(request, response);
             }
-            out.write("</div></body></html>");
+
             out.close();
 
             ifauthenticated.close();

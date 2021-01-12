@@ -5,4 +5,5 @@ $(document).ready(function () {
     $('#login, #password').click(function() {
         $("#errMsg").hide();
     });
+
 });

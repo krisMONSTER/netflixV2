@@ -92,7 +92,7 @@ function handleTopUpWalletData(data) {
     if (data === "success") {
         executeWalletRequest();
     } else {
-        alert("DUPA");
+
     }
 }
 

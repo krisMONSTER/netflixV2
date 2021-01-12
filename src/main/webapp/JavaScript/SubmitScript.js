@@ -9,7 +9,7 @@ function logInRequest() {
 
 
 function handleData(data) {
-    if (!(data === null || data ==="")) {
+    if (!(data === null || data === "")) {
         let snackbar = document.getElementById("snackbar");
         snackbar.innerHTML = data
         snackbar.className = "show";
@@ -33,4 +33,5 @@ $(document).ready(function () {
     $(".submit").click(function () {
         logIn();
     });
+
 });

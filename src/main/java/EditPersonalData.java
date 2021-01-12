@@ -14,9 +14,12 @@ public class EditPersonalData extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         execute(request, response);
     }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        execute(request, response);
+    }
 
     private void execute(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
-
+        System.out.println("INSIDE");
         String input = request.getParameter("input");
 
         if (request.getCharacterEncoding() == null)
@@ -27,7 +30,8 @@ public class EditPersonalData extends HttpServlet {
 
             String query;
             PreparedStatement ps = null;
-            if(input == null){
+            if(input == null || input.equals("null")){
+                System.out.println("CASE 1: ");
                 query = "UPDATE profile " +
                         "SET firstName=(?), lastName=(?), country=(?), address=(?) " +
                         "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
@@ -40,6 +44,7 @@ public class EditPersonalData extends HttpServlet {
                 ps.setString(5, (String) request.getSession().getAttribute("user"));
             }
             else if(input.equals("first_name_btn")){
+                System.out.println("CASE 2: ");
                 query = "UPDATE profile " +
                         "SET firstName=(?) " +
                         "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
@@ -49,6 +54,7 @@ public class EditPersonalData extends HttpServlet {
                 ps.setString(2, (String) request.getSession().getAttribute("user"));
             }
             else if(input.equals("last_name_btn")){
+                System.out.println("CASE 3: ");
                 query = "UPDATE profile " +
                         "SET lastName=(?) " +
                         "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
@@ -58,6 +64,7 @@ public class EditPersonalData extends HttpServlet {
                 ps.setString(2, (String) request.getSession().getAttribute("user"));
             }
             else if(input.equals("country_btn")){
+                System.out.println("CASE 4: ");
                 query = "UPDATE profile " +
                         "SET country=(?) " +
                         "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
@@ -67,6 +74,7 @@ public class EditPersonalData extends HttpServlet {
                 ps.setString(2, (String) request.getSession().getAttribute("user"));
             }
             else if(input.equals("address_btn")){
+                System.out.println("CASE 5: ");
                 query = "UPDATE profile " +
                         "SET address=(?) " +
                         "WHERE idAccount=(SELECT id FROM account WHERE login=(?))";
@@ -76,6 +84,7 @@ public class EditPersonalData extends HttpServlet {
                 ps.setString(2, (String) request.getSession().getAttribute("user"));
             }
             if(ps != null) {
+                System.out.println("UAKTUALNIAM\n\n\n\n\n");
                 ps.executeUpdate();
                 ps.close();
             }
