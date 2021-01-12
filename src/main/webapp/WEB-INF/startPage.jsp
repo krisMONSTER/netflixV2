@@ -12,6 +12,7 @@
           content="width=device-width, initial-scale=1.0">
     <title>MovOn</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/Snackbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/SubmitStyle.css">
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
@@ -221,14 +222,15 @@
         </div>
     </section>
 </div>
-
 <div id="snackbar"></div>
+
 
 <div id="language_div">
     <p onclick="setLanguage('english')" class="language_element">English</p>
     <hr class="language_element" id="language_hr">
     <p onclick="setLanguage('polish')" class="language_element">Polski</p>
 </div>
+
 
 </body>
 

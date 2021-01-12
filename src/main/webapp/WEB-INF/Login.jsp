@@ -12,6 +12,7 @@
     <link rel="icon" href="${pageContext.request.contextPath}/images/logoV2.png" type="image/icon type">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/GeneralStyle.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/LoginStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/Snackbar.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/SubmitStyle.css">
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
@@ -32,7 +33,7 @@
     </a>
 </div>
 <div id="form_div">
-    <form id="form" name="form" action="${pageContext.request.contextPath}/LogIn" method="post">
+    <form id="form" name="form" method="post">
         <a id="login_label"></a><br>
         <label><input type="text" name="login" id="login"></label><br><br>
         <a id="pass_label"></a><br>
@@ -42,7 +43,7 @@
         <div class="submit" style="pointer-events:none"><p id="submit_text"></p></div>
         <input type="submit" style="visibility: hidden; position: absolute;"/>
     </form>
-
 </div>
+<div id="snackbar"></div>
 </body>
 </html>

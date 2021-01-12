@@ -18,8 +18,8 @@ public class LogIn extends HttpServlet {
         ResultSet rs = null;
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.write("<html><body><div id='serlvetResponse' style='text-align: center;'>");
-        RequestDispatcher dispatcher;
+
+
         try {
             conn = DatabaseConnection.initializeDatabase();
             ps = conn.prepareStatement("SELECT login,password,verified FROM account WHERE login=(?) AND password=(?)");
@@ -33,37 +33,31 @@ public class LogIn extends HttpServlet {
             ps.setString(2, encryptedPassword);
             //koniec
 
-
-            if (ps.execute()) {
+            if (request.getParameter("login").equals("") || request.getParameter("password").equals(""))
+                response.getWriter().write("Fill in all gaps");
+            else if (ps.execute()) {
                 rs = ps.getResultSet();
                 rs.next();
                 String login;
                 try {
                     if (rs.getInt("verified") == 1) {
+
                         login = rs.getString("login");
                         HttpSession session = request.getSession();
                         session.setAttribute("user", login);
-                        response.sendRedirect("Welcome");
                     } else {
-                        out.write("<p id='errMsg' style='color: red; font-size: larger;'>Aktywuj swoje konto!</p>");
-                        dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
-                        dispatcher.include(request, response);
+                        out.write("User not activated!");
                     }
 
                 } catch (SQLException e) {
-                    out.write("<p id='errMsg' style='color: red; font-size: larger;'>Niepoprawne dane</p>");
-                    dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
-                    dispatcher.include(request, response);
+                    out.write("Login not found with associated password");
                 }
             }
         } catch (SQLException e) {
-            out.write("<p id='errMsg' style='color: red; font-size: larger;'>SQL error</p>");
-            dispatcher = request.getRequestDispatcher("/WEB-INF/Login.jsp");
-            dispatcher.include(request, response);
+            out.write("SQL Error! Notify page admin!");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
-            out.write("</div></body></html>");
             out.close();
             try {
                 rs.close();
