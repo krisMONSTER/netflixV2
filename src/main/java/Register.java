@@ -70,6 +70,15 @@ public class Register extends HttpServlet {
             ps.setInt(3, id_acc);
             ps.executeUpdate();
             ps.close();
+            ps = conn.prepareStatement("INSERT INTO profile (firstName, lastName, country, address,idAccount) VALUES (?,?,?,?,?)");
+            ps.setString(1, "");
+            ps.setString(2, "");
+            ps.setString(3, "");
+            ps.setString(4, "");
+            ps.setInt(5, id_acc);
+
+            ps.executeUpdate();
+            ps.close();
             conn.close();
             dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Login.jsp");
             dispatcher.forward(request, response);
