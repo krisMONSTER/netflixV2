@@ -65,10 +65,17 @@ public class EditDataNav extends HttpServlet {
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
-
+            if (name == null || name.equals("null"))
+                name = "";
+            if (surname == null || surname.equals("null"))
+                surname = "";
+            if (country == null || country.equals("null"))
+                country = "";
+            if (address == null || address.equals("null"))
+                address = "";
 
             if (parameter != null) {
-                dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/PersonalDataForm.jsp?input=" + request.getParameter("input") + "&first_name=" + name + "&last_name=" + surname + "&country=" + country + "&address=" + address );
+                dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/PersonalDataForm.jsp?input=" + request.getParameter("input") + "&first_name=" + name + "&last_name=" + surname + "&country=" + country + "&address=" + address);
                 System.out.println("Parameter: !null");
             } else {
                 System.out.println("Parameter: null");

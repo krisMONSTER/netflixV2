@@ -9,7 +9,10 @@ function logInRequest() {
 
 
 function handleData(data) {
-    if (!(data === null || data === "")) {
+
+    if (data === "empty")
+        window.location.href = "navigation.EditDataNav"
+    else if (!(data === null || data === "")) {
         let snackbar = document.getElementById("snackbar");
         snackbar.innerHTML = data
         snackbar.className = "show";
