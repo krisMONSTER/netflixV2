@@ -31,6 +31,12 @@
                 window.location.href = "${pageContext.request.contextPath}/EditDataNav?input="+input;
             }
         }
+        function movieDetails(title, action){
+            if(action == null)
+                window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + title;
+            else
+                window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + title +"&action=" + action;
+        }
     </script>
 </head>
 <body>

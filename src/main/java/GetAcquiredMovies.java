@@ -45,7 +45,7 @@ public class GetAcquiredMovies extends HttpServlet {
                     sb.append("<table id=\"personal_data\" align=\"center\" width=400px>");
                     while (rs.next()){
                         sb.append("<tr>");
-                        sb.append("<td><span>" + rs.getString(1) + "</span></td>");
+                        sb.append("<td class='center'><span class='title'>" + rs.getString(1) + "</span></td>");
                         sb.append("</tr>");
                     }
                     sb.append("</table>");

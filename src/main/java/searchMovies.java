@@ -26,7 +26,7 @@ public class searchMovies extends HttpServlet {
         try {
             Connection baza = DatabaseConnection.initializeDatabase();
 
-            PreparedStatement getvideos = baza.prepareStatement("SELECT DISTINCT title, description FROM video WHERE title LIKE (?) ORDER BY title");
+            PreparedStatement getvideos = baza.prepareStatement("SELECT DISTINCT title, description FROM video WHERE title LIKE (?) ORDER BY title ASC");
 
             getvideos.setString(1, "%" + request.getParameter("search") + "%");
 

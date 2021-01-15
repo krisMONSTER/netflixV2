@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.Calendar;
 
-@WebServlet("/PaymentValidation")
-public class PaymentValidation extends HttpServlet {
+@WebServlet("/Extend")
+public class Extend extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         execute(request, response);
@@ -52,21 +52,29 @@ public class PaymentValidation extends HttpServlet {
                             }
                             else{
                                 ps.close();
-                                query = "INSERT INTO services" +
-                                        " (idAccount, idVideo, startDate, endDate)" +
-                                        " VALUES" +
-                                        " ((SELECT id FROM account WHERE login LIKE (?))," +
-                                        " (SELECT id FROM video WHERE title LIKE (?) LIMIT 1), (?), (?))";
-
+                                query = "SELECT endDate FROM services WHERE " +
+                                        "idAccount=(SELECT id FROM account WHERE login LIKE (?)) AND " +
+                                        "idVideo=(SELECT id FROM video WHERE title LIKE (?) LIMIT 1)";
                                 ps = conn.prepareStatement(query);
                                 ps.setString(1, user);
                                 ps.setString(2, title);
+                                ps.execute();
+                                rs = ps.getResultSet();
+                                rs.next();
+                                Timestamp ts = rs.getTimestamp(1);
+                                java.util.Date date = new Date(ts.getTime());
                                 Calendar c = Calendar.getInstance();
-                                java.util.Date date = c.getTime();
-                                ps.setTimestamp(3, new Timestamp(date.getTime()));
+                                c.setTime(date);
+                                ps.close();
+                                query = "UPDATE services SET endDate=(?) WHERE " +
+                                        "idAccount=(SELECT id FROM account WHERE login LIKE (?)) AND " +
+                                        "idVideo=(SELECT id FROM video WHERE title LIKE (?) LIMIT 1)";
+                                ps = conn.prepareStatement(query);
                                 c.add(Calendar.DATE, Integer.parseInt(days));
                                 date = c.getTime();
-                                ps.setTimestamp(4, new Timestamp(date.getTime()));
+                                ps.setTimestamp(1, new Timestamp(date.getTime()));
+                                ps.setString(2, user);
+                                ps.setString(3, title);
                                 if(ps.executeUpdate() != 0){
                                     ps.close();
                                     query = "UPDATE wallet SET amount = (?) WHERE idAccount = (SELECT id FROM account WHERE login = (?))";

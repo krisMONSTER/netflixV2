@@ -73,8 +73,15 @@ public class Register extends HttpServlet {
             ps.setString(3, "");
             ps.setString(4, "");
             ps.setInt(5, id_acc);
-
             ps.executeUpdate();
+            for(int i = 1; i <= 23; i++){
+                ps.close();
+                ps = conn.prepareStatement("INSERT INTO userpreferences VALUES (?, ?, ?)");
+                ps.setInt(1, id_acc);
+                ps.setInt(2, i);
+                ps.setInt(3, 0);
+                ps.executeUpdate();
+            }
             ps.close();
             conn.close();
             dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Login.jsp");

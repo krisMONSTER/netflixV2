@@ -56,8 +56,8 @@ public class GetPersonalData extends HttpServlet {
 
     private String addRow(String content, String label) {
         return "<tr>" +
-                "<td id='left'><span class='content'>" + content + "</span><br><span id='" + label + "'></span></td>" +
-                "<td id='right'>" +
+                "<td class='left'><span class='content'>" + content + "</span><br><span id='" + label + "'></span></td>" +
+                "<td class='right'>" +
                 "<img src=\"data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D\" id='" + label + ("_btn") + "' class='edit_data' alt='edit' height=\"50\" width=\"50\">" +
                 "</td>" +
                 "</tr>";

@@ -82,10 +82,16 @@ function handleWalletData(data) {
 
 function handleAcquiredMovies(data){
     document.getElementById("content_div").innerHTML = data;
+    $(".title").click(function () {
+        movieDetails($(this).text(), "extend");
+    });
 }
 
 function handleArchive(data){
     document.getElementById("content_div").innerHTML = data;
+    $(".title").click(function () {
+        movieDetails($(this).text(), null);
+    });
 }
 
 function handleTopUpWalletData(data) {

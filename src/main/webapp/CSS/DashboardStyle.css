@@ -58,12 +58,16 @@ td {
     height: auto;
 }
 
-td#right{
+td.right{
     text-align: right;
 }
 
-td#left{
+td.left{
     text-align: left;
+}
+
+td.center{
+    text-align: center;
 }
 
 #wrap{
@@ -72,4 +76,8 @@ td#left{
 
 .content{
     font-weight: bold;
+}
+
+.title{
+    cursor: pointer;
 }
