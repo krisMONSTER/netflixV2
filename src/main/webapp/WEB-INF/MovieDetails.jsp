@@ -70,7 +70,10 @@
 
         function setLanguage(lang){
             setCookie("lang", lang, 1);
-            window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + "<%=title%>";
+            if(action === "rent" || action === "extend")
+                window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + "<%=title%>" + "&action=" + action;
+            else
+                window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + "<%=title%>";
         }
 
         function getMovieDescription() {
