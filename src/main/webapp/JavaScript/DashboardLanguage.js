@@ -7,17 +7,17 @@ $(document).ready(function () {
     if (language === "polish") {
         get("log_out").innerHTML = "Wyloguj się";
         get("language").innerHTML = "Język";
-        get("acquired_movies").innerHTML = "Moje filmy";
-        get("archive").innerHTML = "Archiwum";
-        get("edit").innerHTML = "Dane osobowe";
-        get("wallet").innerHTML = "Mój potfel";
+        get("acquired_movies_div").innerHTML = "Moje filmy";
+        get("archive_div").innerHTML = "Archiwum";
+        get("edit_div").innerHTML = "Dane osobowe";
+        get("wallet_div").innerHTML = "Mój potfel";
     } else if (language === "english") {
         get("log_out").innerHTML = "Logout";
         get("language").innerHTML = "Language";
-        get("acquired_movies").innerHTML = "My movies";
-        get("archive").innerHTML = "Archive";
-        get("edit").innerHTML = "Personal data";
-        get("wallet").innerHTML = "My wallet";
+        get("acquired_movies_div").innerHTML = "My movies";
+        get("archive_div").innerHTML = "Archive";
+        get("edit_div").innerHTML = "Personal data";
+        get("wallet_div").innerHTML = "My wallet";
     }
 });
 

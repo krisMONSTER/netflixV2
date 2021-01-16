@@ -1,3 +1,10 @@
+.navbar__menu_2 {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding-left: 39rem;
+}
+
 #dashboard_img{
     width: 100px;
     height: 100px;

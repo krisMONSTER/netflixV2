@@ -47,7 +47,25 @@
         </ul>
     </div>
 </nav>
-<div id="panel">
+<nav class="navbar">
+    <div class="navbar__container">
+        <ul class="navbar__menu_2">
+            <li class="navbar__item">
+                <a class="navbar__link" id="acquired_movies_div"></a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" id="archive_div"></a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" id="edit_div"></a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" id="wallet_div"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<%--<div id="panel">
     <div id="dashboard_div">
         <img id="dashboard_img" src="${pageContext.request.contextPath}/images/user_biały.png" alt="dashboard">
     </div>
@@ -65,7 +83,7 @@
             <span id="wallet"></span>
         </div>
     </div>
-</div>
+</div>--%>
 <div id="content_div"></div>
 <div id="language_div">
     <p onclick="setLanguage('english')" class="language_element">English</p>

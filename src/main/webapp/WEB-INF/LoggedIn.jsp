@@ -44,7 +44,19 @@
         </ul>
     </div>
 </nav>
-<div id="panel">
+<nav class="navbar">
+    <div class="navbar__container">
+        <ul class="navbar__menu">
+            <li class="navbar__item">
+                <a class="navbar__link" id="search_div"></a>
+            </li>
+            <li class="navbar__item">
+                <a class="navbar__link" id="recommended_div"></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<%--<div id="panel">
     <div id="panel_content">
         <div class="panel_element" id="search_div">
             <span id="search"></span>
@@ -53,7 +65,7 @@
             <span id="recommended"></span>
         </div>
     </div>
-</div>
+</div>--%>
 <div id="content_options_div"></div>
 <div id="content_div">
 </div>
