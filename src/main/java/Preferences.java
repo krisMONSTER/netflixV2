@@ -1,3 +1,5 @@
+import Database.DatabaseConnection;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,7 +67,7 @@ public class Preferences extends HttpServlet {
                 );
                 for (String[] row : data) {
                         reply.append("<tr>");
-                        reply.append("<td><span>" + row[0] + "</span></td>");
+                        reply.append("<td><span class='title'>" + row[0] + "</span></td>");
                         reply.append("<td><span>" + row[1] + "</span></td>");
                         reply.append("</tr>");
                 }

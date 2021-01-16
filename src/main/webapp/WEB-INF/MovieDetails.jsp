@@ -19,8 +19,14 @@
     <script src="${pageContext.request.contextPath}/JavaScript/jquery-3.5.1.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
-    <script src="${pageContext.request.contextPath}/JavaScript/MovieDetailsScript.js"></script>
     <script>
+
+        <%
+            String title = request.getParameter("title");
+            String action = request.getParameter("action");
+        %>
+        let action = "<%=action%>";
+
         function set(id, content) {
             let element = document.getElementById(id);
             if(element != null){
@@ -37,29 +43,37 @@
             if(language === "polish"){
                 set("log_out", "Wyloguj się");
                 set("language", "Język");
-                set("submit_text", "Wypożycz");
+                if(action === "rent")
+                    set("submit_text", "Wypożycz");
+                else if(action === "extend")
+                    set("submit_text", "Przedłuż");
             }
             else if(language === "english"){
                 set("log_out", "Logout");
                 set("language", "Language");
-                set("submit_text", "Rent");
+                if(action === "rent")
+                    set("submit_text", "Rent");
+                else if(action === "extend")
+                    set("submit_text", "Extend");
             }
-
-            <%
-            String title = request.getParameter("title");
-            %>
 
             set("title", "<%=title%>");
             getMovieDescription();
 
-            $("#rent").click(function () {
-                checkPayment(document.getElementById("days").value);
+            $("#submit_div").click(function () {
+                if(action === "rent")
+                    rent(document.getElementById("days").value);
+                else if(action === "extend")
+                    extend(document.getElementById("days").value);
             });
         });
 
         function setLanguage(lang){
             setCookie("lang", lang, 1);
-            window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + "<%=title%>";
+            if(action === "rent" || action === "extend")
+                window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + "<%=title%>" + "&action=" + action;
+            else
+                window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + "<%=title%>";
         }
 
         function getMovieDescription() {
@@ -79,20 +93,33 @@
             set("description", data);
         }
 
-        function checkPayment(days) {
-            requestCheckPayment(days).then(handleCheckPayment);
+        function rent(days) {
+            requestRent(days).then(handleData);
         }
 
-        function requestCheckPayment(days) {
+        function extend(days){
+            requestExtend(days).then(handleData);
+        }
+
+        function requestRent(days) {
             return $.ajax({
                 type: "POST",
-                url: "PaymentValidation",
+                url: "Rent",
                 async: false,
                 data: { title: "<%=title%>", days: days}
             });
         }
 
-        function handleCheckPayment(data){
+        function requestExtend(days){
+            return $.ajax({
+                type: "POST",
+                url: "Extend",
+                async: false,
+                data: { title: "<%=title%>", days: days}
+            });
+        }
+
+        function handleData(data){
             if(data === "ok"){
                 window.location.href = "${pageContext.request.contextPath}/DashboardNav";
             }
@@ -138,11 +165,13 @@
 </div>
 <div class="wrap">
     <div id="controls_div" class="content_div">
+        <% if(action!=null){ %>
         <div id="days_div">
             <label for="days"></label><input type="number" id="days" name="tentacles" min="1" max="30">
         </div>
-        <div id="rent" class="submit"><p id="submit_text"></p></div>
+        <div id="submit_div" class="submit"><p id="submit_text"></p></div>
         <input type="submit" style="visibility: hidden; position: absolute;" />
+        <% } %>
     </div>
 </div>
 <div id="snackbar"></div>

@@ -136,12 +136,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>PaymentValidation</servlet-name>
-        <servlet-class>PaymentValidation</servlet-class>
+        <servlet-name>Rent</servlet-name>
+        <servlet-class>Rent</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>PaymentValidation</servlet-name>
-        <url-pattern>/PaymentValidation</url-pattern>
+        <servlet-name>Rent</servlet-name>
+        <url-pattern>/Rent</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -160,5 +160,14 @@
     <servlet-mapping>
         <servlet-name>GetArchive</servlet-name>
         <url-pattern>/GetArchive</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Extend</servlet-name>
+        <servlet-class>Extend</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Extend</servlet-name>
+        <url-pattern>/Extend</url-pattern>
     </servlet-mapping>
 </web-app>

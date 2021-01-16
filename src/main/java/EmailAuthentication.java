@@ -1,3 +1,5 @@
+import Database.DatabaseConnection;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServlet;
 

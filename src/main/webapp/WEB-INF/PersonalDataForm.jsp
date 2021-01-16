@@ -12,23 +12,43 @@
     <script src="${pageContext.request.contextPath}/JavaScript/Cookies.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/LanguagePanelScript.js"></script>
     <script src="${pageContext.request.contextPath}/JavaScript/PersonalDataFormLanguage.js"></script>
+    <%
+        String input = request.getParameter("input");
+        String name = request.getParameter("first_name");
+        String surname = request.getParameter("last_name");
+        String country = request.getParameter("country");
+        String address = request.getParameter("address");
+    %>
     <script>
         $(document).ready(function () {
             $("#submit").click(function () {
-
                 $("#form").submit();
+
             });
 
-        });
+            //alert("<%=input%>");
+            if ("<%=input%>" === "null") {
+                document.getElementById("first_name").value = "<%=name%>";
+                document.getElementById("last_name").value = "<%=surname%>";
+                document.getElementById("country").value = "<%=country%>";
+                document.getElementById("address").value = "<%=address%>";
+            } else if ("<%=input%>" === "first_name_btn")
+                document.getElementById("first_name").value = "<%=name%>";
+            else if ("<%=input%>" === "last_name_btn")
+                document.getElementById("last_name").value = "<%=surname%>";
+            else if ("<%=input%>" === "country_btn")
+                document.getElementById("country").value = "<%=country%>";
+            else if ("<%=input%>" === "address_btn")
+                document.getElementById("address").value = "<%=address%>";
+        })
+        ;
 
         function setLanguage(lang) {
             setCookie("lang", lang, 1);
             window.location.href = "${pageContext.request.contextPath}/EditDataNav";
         }
     </script>
-    <%
-        String input = request.getParameter("input");
-    %>
+
 </head>
 <body>
 <nav class="navbar">

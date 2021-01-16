@@ -1,4 +1,5 @@
-import javax.servlet.RequestDispatcher;
+import Database.DatabaseConnection;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,12 +46,43 @@ public class LogIn extends HttpServlet {
                         login = rs.getString("login");
                         HttpSession session = request.getSession();
                         session.setAttribute("user", login);
+                        String query = "SELECT p.firstName, p.lastName, p.country, p.address FROM profile AS p, account AS a WHERE a.login=(?) AND a.id=p.idAccount";
+                        PreparedStatement ps2 = conn.prepareStatement(query);
+                        login = (String) request.getSession().getAttribute("user");
+                        if (login != null) {
+                            ps2.setString(1, login);
+                            ResultSet rs2;
+                            if (ps2.execute()) {
+                                rs2 = ps2.getResultSet();
+                                String name = null;
+                                String surname = null;
+                                String country = null;
+                                String address = null;
+                                if (rs2.next()) {
+                                    name = rs2.getString("p.firstName");
+                                    surname = rs2.getString("p.lastName");
+                                    country = rs2.getString("p.country");
+                                    address = rs2.getString("p.address");
+                                    System.out.println(address);
+                                    if (name == null || surname == null || country == null || address == null ||
+                                            name.equals("") || surname.equals("") || country.equals("") || address.equals("") ||
+                                            name.equals(" ") || surname.equals(" ") || country.equals(" ") || address.equals(" ") ||
+                                            name.equals("null") || surname.equals("null") || country.equals("null") || address.equals("null")) {
+                                        out.write("empty");
+
+                                    }
+                                }
+                            }
+                        }
+
+
                     } else {
                         out.write("User not activated!");
                     }
 
                 } catch (SQLException e) {
                     out.write("Login not found with associated password");
+                    e.printStackTrace();
                 }
             }
         } catch (SQLException e) {

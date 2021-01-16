@@ -21,7 +21,8 @@
             window.location.href = "${pageContext.request.contextPath}/Welcome";
         }
         function movieDetails(title){
-            window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + title;
+            let action = "rent";
+            window.location.href = "${pageContext.request.contextPath}/MovieDetailsNav?title=" + title +"&action=" + action;
         }
     </script>
 </head>

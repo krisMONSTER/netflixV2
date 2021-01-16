@@ -59,7 +59,8 @@ function handleData(data) {
 
     $("#movies").dataTable({
         "iDisplayLength": 20,
-        "aLengthMenu": [[10, 25, 50, 100,  -1], [10, 25, 50, 100, "All"]]
+        "aLengthMenu": [[10, 25, 50, 100,  -1], [10, 25, 50, 100, "All"]],
+        "ordering": false
     });
 
     $(".title").click(function () {
@@ -74,6 +75,7 @@ $(document).ready(function () {
             "method='post' autocomplete='off'>" +
             "<input type='text' placeholder='Search...' name='search'>" +
             "</form>");
+        $("#content_div").html("");
         startSearchThread();
     });
 

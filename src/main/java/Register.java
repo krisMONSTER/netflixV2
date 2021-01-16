@@ -1,13 +1,11 @@
 
+import Database.DatabaseConnection;
+
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.*;
 
 
 import javax.servlet.RequestDispatcher;
@@ -16,7 +14,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.transform.Result;
 
 
 @WebServlet("/Register")
@@ -76,8 +73,15 @@ public class Register extends HttpServlet {
             ps.setString(3, "");
             ps.setString(4, "");
             ps.setInt(5, id_acc);
-
             ps.executeUpdate();
+            for(int i = 1; i <= 23; i++){
+                ps.close();
+                ps = conn.prepareStatement("INSERT INTO userpreferences VALUES (?, ?, ?)");
+                ps.setInt(1, id_acc);
+                ps.setInt(2, i);
+                ps.setInt(3, 0);
+                ps.executeUpdate();
+            }
             ps.close();
             conn.close();
             dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Login.jsp");
